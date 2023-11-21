@@ -22,3 +22,17 @@ let _myAge = 24; //Not Used
 let MyDogName = "Tiffany"; //Not Used
 
 console.log(`Hi! My name is ${miNombre} ${$myLastName}.`);
+
+//Data Types - Primitives
+
+let stringVar = "String"; //String of characters
+let numberVar = 10; //Numbers
+let booleanVar = true; //Booleans
+let nullVar = null; //Null
+let undefinedVar = undefined; //Not defined yet
+
+console.log(typeof numberVar);
+
+numberVar = "Ya no es un numero"; //Las variabgles del tipo let son mutables
+
+console.log(typeof numberVar);
