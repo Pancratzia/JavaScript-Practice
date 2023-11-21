@@ -44,3 +44,11 @@ console.log(typeof nullVar); //null is an object
 console.log(typeof booleanVar);
 console.log(typeof stringVar);
 console.log(typeof numberVar);
+
+//Hoisting - Variables
+
+x = 10; //Assignment
+
+console.log(x); //You can use a var variable before it is declared, but not with let or const
+
+var x; //Declaration... That's why VAR is not used anymore. If we use 'use strict' at the beginning of the file, hoisting will not work
