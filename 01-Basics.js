@@ -33,7 +33,7 @@ let undefinedVar = undefined; //Not defined yet
 
 console.log(typeof numberVar);
 
-numberVar = "Ya no es un numero"; //Las variabgles del tipo let son mutables
+numberVar = "Ya no es un numero"; //Las variables del tipo let son mutables
 
 console.log(typeof numberVar);
 
@@ -52,3 +52,10 @@ x = 10; //Assignment
 console.log(x); //You can use a var variable before it is declared, but not with let or const
 
 var x; //Declaration... That's why VAR is not used anymore. If we use 'use strict' at the beginning of the file, hoisting will not work
+
+//Constants
+
+const MY_AGE = 24; //Contants should be declared with upper case and snake_case
+
+console.log(MY_AGE);
+console.log(Math.PI); //JV built in Math Library uses Constants too
