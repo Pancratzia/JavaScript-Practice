@@ -36,3 +36,11 @@ console.log(typeof numberVar);
 numberVar = "Ya no es un numero"; //Las variabgles del tipo let son mutables
 
 console.log(typeof numberVar);
+
+numberVar = 10;
+
+console.log(typeof undefinedVar);
+console.log(typeof nullVar); //null is an object
+console.log(typeof booleanVar);
+console.log(typeof stringVar);
+console.log(typeof numberVar);
