@@ -14,4 +14,11 @@ const constVar = "Const is used";
 
 console.log(`${notUsed}, ${letVar} & ${constVar}`);
 
-//BIG NOTE: Variables should start with lower case (Good Practice)
+//BIG NOTE: Variables should start with lower case (Good Practice). Use cammelCase
+
+let miNombre = "Laura"; //Good Practice
+let $myLastName = "Ortega"; //Good Practice
+let _myAge = 24; //Not Used
+let MyDogName = "Tiffany"; //Not Used
+
+console.log(`Hi! My name is ${miNombre} ${$myLastName}.`);
