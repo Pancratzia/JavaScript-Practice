@@ -58,4 +58,19 @@ var x; //Declaration... That's why VAR is not used anymore. If we use 'use stric
 const MY_AGE = 24; //Contants should be declared with upper case and snake_case
 
 console.log(MY_AGE);
-console.log(Math.PI); //JV built in Math Library uses Constants too
+console.log(Math.PI); //JS built in Math Library uses Constants too. they're not mutable
+
+
+//Arithmetic Operators
+
+let a = 10;
+let b = 5;
+
+console.log(a + b); //addition
+console.log(a - b); //subtraction
+console.log(a * b); //multiplication
+console.log(a / b); //division
+console.log(a % b); //remainder
+console.log(a ** b); //exponent
+console.log(a++); //increment
+console.log(a--); //decrement
