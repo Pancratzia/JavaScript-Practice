@@ -120,5 +120,14 @@ AUX = (Y<Z); //Less than
 AUX = (Y>=Z); //Greater than or equal
 AUX = (Y<=Z); //Less than or equal
 
+//Logical Operators
+
+let T = true, F = false;
+
+AUX = (T && F); //AND
+AUX = (T || F); //OR
+AUX = (!T); //NOT
+
+
 
 
