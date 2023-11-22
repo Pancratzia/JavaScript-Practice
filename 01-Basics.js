@@ -106,3 +106,19 @@ X *= 5; //Assignment with multiplication. Same as X = X * 5. X = 10 * 5
 X /= 5; //Assignment with division. Same as X = X / 5. X = 10 / 5
 X %= 5; //Assignment with remainder. Same as X = X % 5. X = 10 % 5
 X **= 5; //Assignment with exponent. Same as X = X ** 5. X = 10 ** 5
+
+//Comparison Operators
+
+let Y = 10, Z = 5;
+
+AUX = (Y==Z); //Equality
+AUX = (Y!=Z); //Inequality
+AUX = (Y===Z); //Strict Equality (Checks type and value)
+AUX = (Y!==Z); //Strict Inequality (Checks type and value)
+AUX = (Y>Z); //Greater than
+AUX = (Y<Z); //Less than
+AUX = (Y>=Z); //Greater than or equal
+AUX = (Y<=Z); //Less than or equal
+
+
+
