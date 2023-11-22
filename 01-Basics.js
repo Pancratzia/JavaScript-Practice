@@ -145,3 +145,9 @@ AUX = (!T); //NOT (Reverses the value)
 if(10 > 5) console.log('10 is greater than 5');
 if(10 < 0) console.log('This won\'t be printed');
 
+if(-1>=0) console.log('This won\'t be printed');
+else console.log('Negative number');
+
+if(0>0) console.log('This won\'t be printed');
+else if (0<0) console.log('This won\'t be printed');
+else console.log('The number is 0');
