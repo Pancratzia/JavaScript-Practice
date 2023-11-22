@@ -151,3 +151,9 @@ else console.log('Negative number');
 if(0>0) console.log('This won\'t be printed');
 else if (0<0) console.log('This won\'t be printed');
 else console.log('The number is 0');
+
+//Ternary Operator
+
+let age = 24;
+
+age >=18 ? console.log('You are allowed to enter') : console.log('You are not allowed to enter');
