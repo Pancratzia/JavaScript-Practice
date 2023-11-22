@@ -71,6 +71,9 @@ console.log(a - b); //subtraction
 console.log(a * b); //multiplication
 console.log(a / b); //division
 console.log(a % b); //remainder
-console.log(a ** b); //exponent
+console.log(a ** b); //exponent (ES2016 - ECMAScript 2016 and above)
+
+//If a**b is not suported, use Math.pow(a, b), where a is the base and b is the exponent
+
 console.log(a++); //increment
 console.log(a--); //decrement
