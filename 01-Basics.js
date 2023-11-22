@@ -90,3 +90,19 @@ AUX = ++A; //B = 1, A = 1 because first the value of A is incremented and then a
 let C = 10;
 
 AUX = C--; //B = 10, C = 9 because first the value of C is assigned to B and then decremented
+
+C = 10;
+
+AUX = --C; //B = 9, C = 9 because first the value of C is decremented and then assigned to B
+
+//Asignation Operators
+
+let X;
+
+X = 10; //Assignment
+X += 5; //Assignment with addition. Same as X = X + 5. X = 10 + 5
+X -= 5; //Assignment with subtraction. Same as X = X - 5. X = 10 - 5
+X *= 5; //Assignment with multiplication. Same as X = X * 5. X = 10 * 5
+X /= 5; //Assignment with division. Same as X = X / 5. X = 10 / 5
+X %= 5; //Assignment with remainder. Same as X = X % 5. X = 10 % 5
+X **= 5; //Assignment with exponent. Same as X = X ** 5. X = 10 ** 5
