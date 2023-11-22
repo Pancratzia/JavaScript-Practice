@@ -77,3 +77,16 @@ console.log(a ** b); //exponent (ES2016 - ECMAScript 2016 and above)
 
 console.log(a++); //increment
 console.log(a--); //decrement
+
+//Increment and Decrement
+
+let A = 0;
+
+let AUX = A++; //B = 0, A = 1 because first the value of A is assigned to B and then incremented
+A = 0;
+
+AUX = ++A; //B = 1, A = 1 because first the value of A is incremented and then assigned to B.
+
+let C = 10;
+
+AUX = C--; //B = 10, C = 9 because first the value of C is assigned to B and then decremented
