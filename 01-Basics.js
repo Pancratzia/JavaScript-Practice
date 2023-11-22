@@ -156,4 +156,4 @@ else console.log('The number is 0');
 
 let age = 24;
 
-age >=18 ? console.log('You are allowed to enter') : console.log('You are not allowed to enter');
+age >=18 ? console.log(`Your age is ${age}. You can enter`) : console.log(`Your age is ${age}. You can't enter`);
