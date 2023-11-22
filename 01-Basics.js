@@ -124,10 +124,19 @@ AUX = (Y<=Z); //Less than or equal
 
 let T = true, F = false;
 
-AUX = (T && F); //AND
-AUX = (T || F); //OR
-AUX = (!T); //NOT
+AUX = (T && F); //AND (Both sides must be true)
+AUX = (T || F); //OR (At least one side must be true)
+AUX = (!T); //NOT (Reverses the value)
 
+//PRECEDENCE OF OPERATORS
 
+//1. () and {}
+//2. Unary Operators (++, --, +, -, !)
+//3. Arithmetic Operators (*, /, %)
+//4. Arithmetic Operators (+, -)
+//5. Relational Operators (<, >, <=, >=)
+//6. Equality Operators (==, !=, ===, !==)
+//7. Logical Operators (&&, ||)
+//8. Assignment Operators (=, +=, -=, *=, /=, %=, **=)
 
 
