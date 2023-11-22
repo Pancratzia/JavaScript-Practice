@@ -140,3 +140,8 @@ AUX = (!T); //NOT (Reverses the value)
 //8. Assignment Operators (=, +=, -=, *=, /=, %=, **=)
 
 
+//Decitions
+
+if(10 > 5) console.log('10 is greater than 5');
+if(10 < 0) console.log('This won\'t be printed');
+
