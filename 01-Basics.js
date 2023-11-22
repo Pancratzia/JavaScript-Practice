@@ -176,3 +176,21 @@ switch(color){
     default:
         console.log('Color is neither red nor blue');
 }
+
+//Looping
+
+let i = 0;
+
+while(i < 5){ //First thinks, then executes
+    console.log(`i = ${i}`);
+    i++;
+}
+
+do{ //First executes, then thinks
+    console.log(`i = ${i}`);
+    i--;
+}while(i > 0);
+
+for(let j = 0; j < 5; j++){
+    console.log(`j = ${j}`);
+}
