@@ -157,3 +157,22 @@ else console.log('The number is 0');
 let age = 24;
 
 age >=18 ? console.log(`Your age is ${age}. You can enter`) : console.log(`Your age is ${age}. You can't enter`);
+
+//Switch
+
+let color = 'blUE';
+color = color.toLowerCase();
+
+switch(color){
+    case 'red':
+        console.log('Color is red');
+        break;
+    case 'blue':
+        console.log('Color is blue');
+        break;
+    case 'green':
+        console.log('Color is green');
+        break;
+    default:
+        console.log('Color is neither red nor blue');
+}
