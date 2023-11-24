@@ -228,7 +228,24 @@ matriz[1][1] = 400;
 matriz = [[], []]; 
 
 matriz = [
-    [1, 2],
-    [3, 4],
+    [1, 2, 3],
+    [4, 5, 6],
 ]  //Simple way to create a matrix
+
+let cadenaMatriz='';
+
+const filas = matriz.length;
+let columnas;
+
+for(let i = 0; i < filas; i++){
+
+    columnas = matriz[i].length;
+    for(let j = 0; j < columnas; j++){
+        cadenaMatriz += `${matriz[i][j]} `;
+    }
+    cadenaMatriz += '\n';
+}
+
+console.log(cadenaMatriz);
+
 
