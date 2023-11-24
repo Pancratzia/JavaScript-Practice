@@ -194,3 +194,22 @@ do{ //First executes, then thinks
 for(let j = 0; j < 5; j++){
     console.log(`j = ${j}`);
 }
+
+
+//Arrays
+let numeros = [];
+
+numeros[0] = 1;
+numeros[1] = "Dos";
+
+console.log(`La posición 0 del arreglo es de tipo ${typeof numeros[0]} y su valor es ${numeros[0]}. Por otro lado, la posición 1 del arreglo es de tipo ${typeof numeros[1]} y su valor es ${numeros[1]}.`);
+
+numeros = [];
+
+numeros = [1, 2, 3, 4, 5]; //Simple way to create an array
+
+for(let i = 0; i < numeros.length; i++){
+    console.log(numeros[i]); //Prints each element
+}
+
+
