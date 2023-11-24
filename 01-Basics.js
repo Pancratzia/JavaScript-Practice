@@ -212,4 +212,23 @@ for(let i = 0; i < numeros.length; i++){
     console.log(numeros[i]); //Prints each element
 }
 
+//Matrix
+
+let matriz = [[], []]; //2x2
+matriz[0][0] = 100;
+matriz[0][1] = 200;
+matriz[1][0] = 300;
+matriz[1][1] = 400;  
+
+/***************
+*   [100, 200],*
+*   [300, 400] * 
+***************/
+
+matriz = [[], []]; 
+
+matriz = [
+    [1, 2],
+    [3, 4],
+]  //Simple way to create a matrix
 
