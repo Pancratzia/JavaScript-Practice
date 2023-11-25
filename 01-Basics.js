@@ -255,3 +255,14 @@ function imprimir (parametro){
 }
 
 imprimir("Hola");
+
+function metodo(){
+    console.log("No retorno ningún valor");
+}
+
+function funcion(){
+    return "Yo sí retorno valor";
+}
+
+metodo();
+console.log(funcion());
