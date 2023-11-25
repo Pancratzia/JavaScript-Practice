@@ -248,4 +248,10 @@ for(let i = 0; i < filas; i++){
 
 console.log(cadenaMatriz);
 
+//Funciones
 
+function imprimir (parametro){
+    console.log("Un parametro es una variable local del método, y cuando la llamamos, se le pasan argumentos. En este caso, el argumento es:", parametro);
+}
+
+imprimir("Hola");
