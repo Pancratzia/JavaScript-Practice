@@ -266,3 +266,26 @@ function funcion(){
 
 metodo();
 console.log(funcion());
+
+//Paso por valor - Naturalmente las variables primitivas son pasadas por valor
+
+function cambiarValor(parametro){
+    parametro = 20;
+}
+
+let argumento = 10;
+cambiarValor(argumento);
+console.log(argumento); //Se pasa el valor, no la varibale en este caso. Por lo cual, el valor solo cambia dentro del método
+
+//Paso por referencia - Naturalmente los objetos son pasados por referencia
+
+function cambiarPorReferencia(parametro){
+    parametro[0] = 20;
+}
+
+argumento = [10];
+cambiarPorReferencia(argumento);
+console.log(argumento); //Se pasa la referencia del objeto, por lo cual, el valor cambia en el método
+
+//Tipos de funciones (Definidas por el Usuario e Incorporadas)
+
