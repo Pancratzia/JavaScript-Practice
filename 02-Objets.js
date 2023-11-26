@@ -18,3 +18,23 @@ console.log(persona['sexo']);
 console.log(persona);
 
 console.log(persona.nombreCompleto());
+
+//Creando un objeto
+
+let persona2 = new Object();
+
+persona2.nombre = 'Laura';
+persona2.apellido = 'Ortega';
+persona2.edad = 24;
+persona2.sexo = 'Femenino';
+persona2.colorFavorito = 'Morado';
+persona2.nombreCompleto = function(){
+    return this.nombre + ' ' + this.apellido;
+}
+
+console.log(persona2.colorFavorito);
+console.log(persona2['colorFavorito']);
+console.log(persona2['sexo']);
+console.log(persona2);
+
+console.log(persona2.nombreCompleto());
