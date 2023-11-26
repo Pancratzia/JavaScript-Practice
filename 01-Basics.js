@@ -323,5 +323,25 @@ console.log(variableGlobal);
          recursiva(n-1);
      }
 
-     return;
+     console.log(n);
  }
+
+ recursiva(5); /***Se llama a sí misma hasta alcanzar un caso base***/
+
+ //Funciones incorporadas en JS
+
+ let cadena1 = 'Hola';
+
+ console.log(cadena1.length); //Imprime la longitud de la cadena. Es un atributo del objeto String
+
+ cadena1[0] = 'X'; //No se puede modificar la cadena porque es inmutable
+ console.log(cadena1);
+
+ for(let i = 0; i < cadena1.length; i++){
+     console.log(cadena1[i]);  //Se puede recorrer la cadena para ver cada caracter, pero no se puede modificar individualmente
+ }
+
+let cadena2 = 'Hola Mundo';
+
+console.log(cadena2.substring(0, 4));  //Imprime desde la posicion 0 hasta la 4. El índice de fin no se incluye, por lo que se imprime hasta la 3. Es decir, debe colocarse el indice de fin-1
+console.log(cadena2.substring(5));  //Imprime desde la posicion 5 hasta la 10. Si no colocamos el indice final se imprime hasta el final de la cadena

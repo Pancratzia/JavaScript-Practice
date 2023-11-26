@@ -35,3 +35,18 @@ do{
     i++;
 }while(i <= 5);
 console.log(sum);
+
+
+//Recursive Function - Print from 1 to 3
+
+function funcionRecursiva(n){
+    if(n === 1){
+        console.log(n); //Caso base
+    }
+    else{
+        console.log(n);
+        funcionRecursiva(n-1);
+    }
+}
+
+funcionRecursiva(3);
