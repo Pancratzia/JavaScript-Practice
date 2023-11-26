@@ -301,3 +301,16 @@ cambiarCadena(argumento);
 console.log(argumento); //Se imprime el valor original que es 'Hola'
 
 //Alcance de las variables
+
+let variableGlobal = 20;
+
+function funcionVariableLocal(variableLocal){
+    console.log(variableGlobal);
+    console.log(variableLocal);
+
+    variableGlobal= 10;
+}
+
+funcionVariableLocal(variableGlobal);
+console.log(variableGlobal);
+ /******La variable global tiene mayor alcance que la variable local. No se puede redefinir con let, pero sí con Var. Es por ello que no se usa var******/
