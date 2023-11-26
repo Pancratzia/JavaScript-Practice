@@ -117,3 +117,19 @@ persona2.email = 'arthurod@me.com';
 console.log(persona2);
 
 console.log(persona.nombreCompleto() + ' y ' + persona2.nombreCompleto());
+
+//Formas de crear objetos
+
+let miObjeto = new Object();
+miObjeto = {};
+
+miObjeto = new Number(1);
+miObjeto = 1;
+miObjeto = new String('hola');
+miObjeto = 'hola';
+miObjeto = new Boolean(true);
+miObjeto = true;
+miObjeto = new Array();
+miObjeto = [];
+miObjeto = new Function();
+miObjeto = function(){};
