@@ -133,3 +133,17 @@ miObjeto = new Array();
 miObjeto = [];
 miObjeto = new Function();
 miObjeto = function(){};
+
+//Agregando nuevas propiedades a las Funciones
+
+persona.tel = '123456';
+
+console.log(persona.tel);
+console.log(persona2.tel); //Es undefined debido a que la propiedad no existe en persona2, solo en persona
+
+delete persona.tel;
+
+Persona.prototype.tel = '123456';
+persona.tel = '654321';
+
+console.log(persona.tel + ' y ' + persona2.tel);
