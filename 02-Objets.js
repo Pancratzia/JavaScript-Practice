@@ -94,3 +94,21 @@ console.log(persona3.lang);
 persona3.lang = 'en'
 console.log(persona3.lang);
 console.log(persona3.idioma);
+
+
+//Constructor de Objetos
+function Persona(nombre, apellido, email){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.email = email;
+}
+
+persona = new Persona('Laura', 'Ortega', 'laura@me.com');
+persona2 = new Persona('Arthuro', 'Dugarte', 'arthuro@me.com');
+
+console.log(persona);
+console.log(persona2);
+
+persona2.email = 'arthurod@me.com';
+
+console.log(persona2);
