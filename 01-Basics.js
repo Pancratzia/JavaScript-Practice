@@ -366,3 +366,6 @@ let numero2 = 20;
 
 console.log(numero1 + numero2); //30. Se suman aritméticamente
 console.log(numero1.toString() + numero2.toString()); //1020. Se convierten a cadena
+
+let nAbsoluto = Math.abs(-10);
+console.log(nAbsoluto); //10
