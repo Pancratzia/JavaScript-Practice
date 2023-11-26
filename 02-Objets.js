@@ -65,3 +65,16 @@ console.log(personaArray);
 
 let personaString = JSON.stringify(persona);
 console.log(personaString);
+
+//Set y Get
+
+let persona3 = {
+    nombre: 'Laura',
+    apellido: 'Ortega',
+    edad: 24,
+    sexo: 'Femenino',
+    colorFavorito: 'Morado',
+    get nombreCompleto(){
+        return this.nombre + ' ' + this.apellido;
+    }
+}
