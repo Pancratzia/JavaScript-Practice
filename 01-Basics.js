@@ -289,3 +289,15 @@ console.log(argumento); //Se pasa la referencia del objeto, por lo cual, el valo
 
 //Tipos de funciones (Definidas por el Usuario e Incorporadas)
 
+//Cadenas y funciones en JS
+//Cadenas inmutables en JS (No se pueden modificar)
+
+function cambiarCadena(parametro){
+    parametro = 'Adios';
+}
+
+argumento = 'Hola'
+cambiarCadena(argumento);
+console.log(argumento); //Se imprime el valor original que es 'Hola'
+
+//Alcance de las variables
