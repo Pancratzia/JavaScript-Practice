@@ -43,3 +43,5 @@ for(nombrePropiedad  in persona2){
     console.log(nombrePropiedad);
     console.log(persona2[nombrePropiedad]);
 }
+
+persona.telefono = '123456';
