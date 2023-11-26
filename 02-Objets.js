@@ -45,3 +45,23 @@ for(nombrePropiedad  in persona2){
 }
 
 persona.telefono = '123456';
+
+console.log(persona);
+
+delete persona.telefono;
+
+console.log(persona);
+
+
+//Imprimiendo objeto
+console.log(persona.nombre + ' ' + persona.apellido + ', ' + persona.edad);
+
+for (nombrePropiedad in persona){
+    console.log(persona[nombrePropiedad]);
+}
+
+let personaArray = Object.values(persona);
+console.log(personaArray);
+
+let personaString = JSON.stringify(persona);
+console.log(personaString);
