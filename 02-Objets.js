@@ -166,7 +166,7 @@ persona2 = {
 console.log(persona1.nombreCompleto());
 console.log(persona1.nombreCompleto.call(persona2)); //Llamando a la funcion de persona1 a persona2 por medio del metodo call sin necesidad de definirlo en persona1
 
-//Paso de Argumentos por el Metodo Call
+//Paso de Argumentos por el Metodo Call - Paso de Argumentos por medio de Argumentos
 
 persona1 = {
     nombre: 'Laura',
@@ -178,3 +178,8 @@ persona1 = {
 
 console.log(persona1.nombreCompleto('Ing.', 'Pancratzia'));
 console.log(persona1.nombreCompleto.call(persona2, 'Ing. en Computación', 'Pancro'));
+
+//Metodo Apply - Paso de Argumentos por el Metodo Apply (Arreglos)
+
+const arrayApply = ['Ing.', 'Pancratzia'];
+console.log(persona1.nombreCompleto.apply(persona2, arrayApply));
