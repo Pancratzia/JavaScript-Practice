@@ -345,3 +345,24 @@ let cadena2 = 'Hola Mundo';
 
 console.log(cadena2.substring(0, 4));  //Imprime desde la posicion 0 hasta la 4. El índice de fin no se incluye, por lo que se imprime hasta la 3. Es decir, debe colocarse el indice de fin-1
 console.log(cadena2.substring(5));  //Imprime desde la posicion 5 hasta la 10. Si no colocamos el indice final se imprime hasta el final de la cadena
+
+cadena1='Hola';
+cadena2='Mundo';
+
+let cadena3 = cadena1 + ' ' + cadena2;
+console.log(cadena3);
+
+cadena3 = `${cadena1} ${cadena2}`;
+console.log(cadena3);
+
+cadena1 = '10';
+cadena2 = '20';
+
+console.log(cadena1 + cadena2); //1020. Se concatena
+console.log(parseInt(cadena1) + parseInt(cadena2)); //30. Se convierte a entero
+
+let numero1 = 10;
+let numero2 = 20;
+
+console.log(numero1 + numero2); //30. Se suman aritméticamente
+console.log(numero1.toString() + numero2.toString()); //1020. Se convierten a cadena
