@@ -165,3 +165,16 @@ persona2 = {
 
 console.log(persona1.nombreCompleto());
 console.log(persona1.nombreCompleto.call(persona2)); //Llamando a la funcion de persona1 a persona2 por medio del metodo call sin necesidad de definirlo en persona1
+
+//Paso de Argumentos por el Metodo Call
+
+persona1 = {
+    nombre: 'Laura',
+    apellido: 'Ortega',
+    nombreCompleto: function(titulo, sobrenombre){
+        return titulo + ' ' + this.nombre + ' ' + this.apellido + ', mejor conocido como ' + sobrenombre;
+    }
+}
+
+console.log(persona1.nombreCompleto('Ing.', 'Pancratzia'));
+console.log(persona1.nombreCompleto.call(persona2, 'Ing. en Computación', 'Pancro'));
