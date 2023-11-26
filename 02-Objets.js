@@ -74,7 +74,23 @@ let persona3 = {
     edad: 24,
     sexo: 'Femenino',
     colorFavorito: 'Morado',
+    idioma: 'es',
     get nombreCompleto(){
         return this.nombre + ' ' + this.apellido;
+    },
+
+    get lang(){
+        return this.idioma.toUpperCase();
+    },
+
+    set lang(lang){
+        this.idioma = lang.toUpperCase();
     }
 }
+
+console.log(persona3.nombreCompleto);
+
+console.log(persona3.lang);
+persona3.lang = 'en'
+console.log(persona3.lang);
+console.log(persona3.idioma);
