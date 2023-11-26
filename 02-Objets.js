@@ -147,3 +147,21 @@ Persona.prototype.tel = '123456';
 persona.tel = '654321';
 
 console.log(persona.tel + ' y ' + persona2.tel);
+
+//Metodo Call
+
+let persona1 = {
+    nombre: 'Laura',
+    apellido: 'Ortega',
+    nombreCompleto: function(){
+        return this.nombre + ' ' + this.apellido;
+    }
+}
+
+persona2 = {
+    nombre: 'Arthuro',
+    apellido: 'Dugarte',
+}
+
+console.log(persona1.nombreCompleto());
+console.log(persona1.nombreCompleto.call(persona2)); //Llamando a la funcion de persona1 a persona2 por medio del metodo call sin necesidad de definirlo en persona1
