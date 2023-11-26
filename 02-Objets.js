@@ -38,3 +38,8 @@ console.log(persona2['sexo']);
 console.log(persona2);
 
 console.log(persona2.nombreCompleto());
+
+for(nombrePropiedad  in persona2){
+    console.log(nombrePropiedad);
+    console.log(persona2[nombrePropiedad]);
+}
