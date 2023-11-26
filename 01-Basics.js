@@ -314,3 +314,14 @@ function funcionVariableLocal(variableLocal){
 funcionVariableLocal(variableGlobal);
 console.log(variableGlobal);
  /******La variable global tiene mayor alcance que la variable local. No se puede redefinir con let, pero sí con Var. Es por ello que no se usa var******/
+
+ //Funciones Recursivas - Se llaman a sí misma
+
+ function recursiva(n){
+     if(n > 0){
+         console.log(n);
+         recursiva(n-1);
+     }
+
+     return;
+ }
