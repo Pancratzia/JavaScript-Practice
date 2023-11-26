@@ -101,6 +101,9 @@ function Persona(nombre, apellido, email){
     this.nombre = nombre;
     this.apellido = apellido;
     this.email = email;
+    this.nombreCompleto = function(){
+        return this.nombre + ' ' + this.apellido;
+    }
 }
 
 persona = new Persona('Laura', 'Ortega', 'laura@me.com');
@@ -112,3 +115,5 @@ console.log(persona2);
 persona2.email = 'arthurod@me.com';
 
 console.log(persona2);
+
+console.log(persona.nombreCompleto() + ' y ' + persona2.nombreCompleto());
