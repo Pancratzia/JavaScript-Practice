@@ -369,3 +369,13 @@ console.log(numero1.toString() + numero2.toString()); //1020. Se convierten a ca
 
 let nAbsoluto = Math.abs(-10);
 console.log(nAbsoluto); //10
+
+//Redondeo y truncamiento
+
+let redondeo = 8.6;
+
+console.log(Math.round(redondeo)); //9. Redondea al valor entero más cercano
+
+let truncamiento = 8.6;
+
+console.log(Math.trunc(truncamiento)); //8. Quita los decimales
