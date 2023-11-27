@@ -53,6 +53,10 @@ class Empleado extends Persona{
     set departamento(departamento){
         this._departamento = departamento;
     }
+
+    nombreCompleto(){
+        return super.nombreCompleto() + ', miembro del departamento de ' + this._departamento;
+    }
 }
 
 let empleado1 = new Empleado('Laura', 'Ortega', 'Desarrollo JS');
