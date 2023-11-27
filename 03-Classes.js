@@ -31,3 +31,27 @@ console.log(persona2);
 
 persona1.nombre = 'Laura Estefanía';
 console.log(persona1.nombre);
+
+//Con clases no existe el hoisting o el prototipo. Por ello, primero debe definirse la clase persona y posteriormente se instancian los objetos.
+
+//HERENCIA
+
+class Empleado extends Persona{
+    constructor (nombre, apellido, departamento){
+        super (nombre, apellido);
+        this._departamento = departamento;
+    }
+
+    get departamento(){
+        return this._departamento;
+    }
+
+    set departamento(departamento){
+        this._departamento = departamento;
+    }
+}
+
+let empleado1 = new Empleado('Laura', 'Ortega', 'Sistemas');
+
+console.log(empleado1);
+console.log(empleado1.departamento);
