@@ -1,6 +1,6 @@
 //Una clase es una Plantilla que permite crear instancias de la clase, es decir, un objeto.
 
-class Persona{
+class Persona{ //La clase Objet es la clase padre de todos los objetos que se creen en JS.
     constructor (nombre, apellido){
         this._nombre = nombre;
         this._apellido = apellido;
@@ -25,6 +25,10 @@ class Persona{
 
     nombreCompleto(){
         return this._nombre + ' ' + this._apellido;
+    }
+
+    toString(){
+        return this.nombreCompleto();
     }
 }
 
@@ -66,3 +70,4 @@ console.log(empleado1.departamento);
 console.log(empleado1.apellido);
 
 console.log(empleado1.nombreCompleto());
+console.log(empleado1.toString()); //Se ejecuta el método de la clase hija
