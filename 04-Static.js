@@ -1,7 +1,12 @@
 class Persona{
+
+    static contadorDeObjetosPersona = 0; //Atributo que pertenece a la clase pero no al objeto
+
     constructor (nombre, apellido){
         this._nombre = nombre;
         this._apellido = apellido;
+
+        Persona.contadorDeObjetosPersona++;
     }
 
     get nombre(){
@@ -73,3 +78,11 @@ console.log(Persona.saludarPersona(persona1));
 console.log(Empleado.saludar());
 
 console.log(Empleado.saludarPersona(empleado1));
+
+//Utilizando la variable estatica
+
+console.log(persona1.contadorDeObjetosPersona); //Dirá undefined porque es static y no pertenece al objeto
+
+console.log(Persona.contadorDeObjetosPersona); //Dirá 0 porque es static y pertenece a la clase
+
+console.log(Empleado.contadorDeObjetosPersona); //También se heredan los atributos de la clase persona.
