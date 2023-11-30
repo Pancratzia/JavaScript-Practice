@@ -29,7 +29,11 @@ class Persona{
     }
 
     static saludar(){
-        return 'Hola desde el método static';
+        return ('Saludos desde método static');
+    }
+
+    static saludarPersona(persona){
+        return (`Hola, ${persona.nombre} ${persona.apellido}!`);
     }
 
 }
@@ -61,3 +65,7 @@ let empleado1 = new Empleado('Arthuro', 'Dugarte', 'Sistemas');
 console.log(empleado1.toString());
 
 // persona1.saludar(); - No se puede acceder al método static debido a que se asocia a la clase Persona y no a los objetos. 
+
+console.log(Persona.saludar()); // Se puede acceder al método static de la clase Persona
+
+console.log(Persona.saludarPersona(persona1));
