@@ -69,3 +69,7 @@ console.log(empleado1.toString());
 console.log(Persona.saludar()); // Se puede acceder al método static de la clase Persona
 
 console.log(Persona.saludarPersona(persona1));
+
+console.log(Empleado.saludar());
+
+console.log(Empleado.saludarPersona(empleado1));
