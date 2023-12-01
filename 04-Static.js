@@ -1,15 +1,15 @@
 class Persona{
 
-    static contadorDeObjetosPersona = 0; //Atributo que pertenece a la clase pero no al objeto
+    //static contadorDeObjetosPersona = 0; //Atributo que pertenece a la clase pero no al objeto
 
+    static contadorPersonas = 0;
 
     email = 'correo@correo.com'; //Este es un atributo del objeto, mientras que static es un atributo de la clase
 
     constructor (nombre, apellido){
         this._nombre = nombre;
         this._apellido = apellido;
-
-        Persona.contadorDeObjetosPersona++;
+        this.idPersona = parseInt(++Persona.contadorPersonas);
     }
 
     get nombre(){
@@ -29,7 +29,7 @@ class Persona{
     }
 
     nombreCompleto(){
-        return this._nombre + ' ' + this._apellido;
+        return this.idPersona + '- ' + this._nombre + ' ' + this._apellido;
     }
 
     toString(){
@@ -67,9 +67,23 @@ class Empleado extends Persona{
 }
 
 let persona1 = new Persona('Laura', 'Ortega');
-console.log(persona1.toString());
-
 let empleado1 = new Empleado('Arthuro', 'Dugarte', 'Sistemas');
+
+console.log(persona1.toString());
+console.log(empleado1.toString());
+
+console.log(Persona.contadorPersonas);
+
+let persona2 = new Persona('Juan', 'Perez');
+
+console.log(persona2.toString());
+
+console.log(Persona.contadorPersonas);
+
+
+/*
+
+console.log(persona1.toString());
 console.log(empleado1.toString());
 
 // persona1.saludar(); - No se puede acceder al método static debido a que se asocia a la clase Persona y no a los objetos. 
@@ -95,3 +109,4 @@ console.log(empleado1.email); //Se muestra el atributo de la clase Persona
 
 console.log(Persona.email); //Se muestra undefined debido a que se asocial al objeto, no con la clase
 
+*/
