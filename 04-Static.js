@@ -2,6 +2,9 @@ class Persona{
 
     static contadorDeObjetosPersona = 0; //Atributo que pertenece a la clase pero no al objeto
 
+
+    email = 'correo@correo.com'; //Este es un atributo del objeto, mientras que static es un atributo de la clase
+
     constructor (nombre, apellido){
         this._nombre = nombre;
         this._apellido = apellido;
@@ -86,3 +89,9 @@ console.log(persona1.contadorDeObjetosPersona); //Dirá undefined porque es stat
 console.log(Persona.contadorDeObjetosPersona); //Dirá 0 porque es static y pertenece a la clase
 
 console.log(Empleado.contadorDeObjetosPersona); //También se heredan los atributos de la clase persona.
+
+console.log(persona1.email); //Se muestra el atributo de la clase Persona
+console.log(empleado1.email); //Se muestra el atributo de la clase Persona
+
+console.log(Persona.email); //Se muestra undefined debido a que se asocial al objeto, no con la clase
+
