@@ -6,10 +6,21 @@ class Persona{
 
     email = 'correo@correo.com'; //Este es un atributo del objeto, mientras que static es un atributo de la clase
 
+    //CONSTANTE ESTATICA (SOLO LECTURA)
+
+    static get MAX_OBJETOS(){ //Maximo de objetos que pueden ser creados a partir de esta clase
+        return 5;
+    }
+
     constructor (nombre, apellido){
-        this._nombre = nombre;
-        this._apellido = apellido;
-        this.idPersona = parseInt(++Persona.contadorPersonas);
+
+        if (Persona.contadorPersonas < Persona.MAX_OBJETOS){
+            this._nombre = nombre;
+            this._apellido = apellido;
+            this.idPersona = parseInt(++Persona.contadorPersonas);
+        }else{
+            console.log('Se ha superado el maximo de objetos permitidos');
+        }
     }
 
     get nombre(){
@@ -79,6 +90,19 @@ let persona2 = new Persona('Juan', 'Perez');
 console.log(persona2.toString());
 
 console.log(Persona.contadorPersonas);
+
+console.log(Persona.MAX_OBJETOS); //Máximo de 5 objetos del tipo Persona
+
+Persona.MAX_OBJETOS = 10; //No se puede modificar la constante estatica
+
+let persona3 = new Persona('Carlos', 'Lara');
+let empleado2 = new Empleado('Armando', 'Sulbaran', 'Sistemas');
+
+console.log(persona3.toString());
+console.log(empleado2.toString());
+
+let empleado3 = new Empleado('Juan', 'Perez', 'Sistemas'); //En consola se muestra el mensaje de error debido a que se ha superado el maximo de objetos permitidos de la clase.
+
 
 
 /*
