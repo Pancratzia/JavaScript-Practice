@@ -52,7 +52,7 @@ class Empleado extends Persona {
         this._idEmpleado = ++Empleado.contadorEmpleados;
     }
 
-    get idEmpleado(){
+    getIdEmpleado(){
         return this._idEmpleado;
     }
 
@@ -69,10 +69,45 @@ class Empleado extends Persona {
     }
 }
 
+class Cliente extends Persona {
+    static contadorClientes = 0;
+
+    constructor (nombre, apellido, edad){
+        super (nombre, apellido, edad);
+        this._fechaRegistro = new Date().toLocaleDateString();
+        this._idCliente = ++Cliente.contadorClientes;
+    }
+
+    getIdCliente(){
+        return this._idCliente;
+    }
+
+    get fechaRegistro(){
+        return this._fechaRegistro;
+    }
+
+    set fechaRegistro(fecha){
+        this._fechaRegistro = fecha;
+    }
+
+    toString(){
+        return `${super.toString()} Fue registrado el ${this._fechaRegistro}.`
+    }
+}
+
 
 
 let persona = new Persona('Juan', 'Perez', 28);
 console.log(persona.toString());
 
+console.log(persona.getIdPersona());
+
 let empleado = new Empleado('Carlos', 'Lara', 35, 2000);
 console.log(empleado.toString());
+console.log(empleado.getIdPersona());
+console.log(empleado.getIdEmpleado());
+
+let cliente = new Cliente('Karla', 'Gomez', 25);
+console.log(cliente.toString());
+console.log(cliente.getIdPersona());
+console.log(cliente.getIdCliente());
