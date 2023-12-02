@@ -31,18 +31,17 @@ const giftIds3 = [5, 1, 5, 1]
 
 // 2, 3
 
-function findFirstRepeated(giftIds) {
-
+function findFirstRepeated(gifts) {
   let repeatedNumber = -1; //Asigning -1 as default value
 
   //If there are repeated numbers
   let position = -1; //Asigning -1 as default value because that indicates that there are no repeated numbers yet
 
-  for (let i = 0; i < giftIds.length; i++) {
-    for (let j = i + 1; j < giftIds.length; j++) {
-      if (giftIds[i] === giftIds[j]) { //If there are repeated numbers
+  for (let i = 0; i < gifts.length; i++) {
+    for (let j = i + 1; j < gifts.length; j++) {
+      if (gifts[i] === gifts[j]) { //If there are repeated numbers
         if(position===-1 || j<position){ // And the position of the first concurrency of the repeated number is less than the current position for a repeated number in the list
-          repeatedNumber = giftIds[i]; //We assign the repeated number
+          repeatedNumber = gifts[i]; //We assign the repeated number
           position = j; //And the position of the first concurrency of the repeated number contains the current position
         }
       }
@@ -52,6 +51,7 @@ function findFirstRepeated(giftIds) {
   //If there are no repeated numbers
   return repeatedNumber;
 }
+
 
 console.log(findFirstRepeated(giftIds));
 console.log(findFirstRepeated(giftIds2));
