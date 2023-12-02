@@ -24,14 +24,35 @@ console.log(firstRepeatedId3) // 5
 ¡Ojo! Los elfos dicen que esto es una prueba técnica de Google.
 */
 
-const giftIds = [2, 1, 3, 5, 3, 2];
-const giftIds2 = [1, 2, 3, 4];
-const giftIds3 = [5, 1, 5, 1];
+const giftIds = [2, 1, 3, 5, 3, 2]
+const giftIds2 = [1, 2, 3, 4]
+const giftIds3 = [5, 1, 5, 1]
+
+
+// 2, 3
 
 function findFirstRepeated(giftIds) {
 
-    //If there are repeated numbers
+  let repeatedNumber = -1; //Asigning -1 as default value
 
-    //If there are no repeated numbers
-    return -1;
+  //If there are repeated numbers
+  let position = -1; //Asigning -1 as default value because that indicates that there are no repeated numbers yet
+
+  for (let i = 0; i < giftIds.length; i++) {
+    for (let j = i + 1; j < giftIds.length; j++) {
+      if (giftIds[i] === giftIds[j]) { //If there are repeated numbers
+        if(position===-1 || j<position){ // And the position of the first concurrency of the repeated number is less than the current position for a repeated number in the list
+          repeatedNumber = giftIds[i]; //We assign the repeated number
+          position = j; //And the position of the first concurrency of the repeated number contains the current position
+        }
+      }
+    }
+  }
+
+  //If there are no repeated numbers
+  return repeatedNumber;
 }
+
+console.log(findFirstRepeated(giftIds));
+console.log(findFirstRepeated(giftIds2));
+console.log(findFirstRepeated(giftIds3));
