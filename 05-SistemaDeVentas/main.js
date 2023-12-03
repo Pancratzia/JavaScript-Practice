@@ -92,3 +92,10 @@ console.log(orden.calcularTotal());
 console.log(orden.mostrarOrden());
 
 orden.agregarProducto(new Producto("Laptop", 1000)); //No se puede agregar más productos porque se supera el límite
+
+orden = new Orden();
+orden.agregarProducto(new Producto("Camisa", 10));
+orden.agregarProducto(new Producto("Pantalon", 20));
+
+console.log(orden.calcularTotal());
+console.log(orden.mostrarOrden());
