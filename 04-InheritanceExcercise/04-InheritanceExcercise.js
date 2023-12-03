@@ -6,11 +6,11 @@ class Persona {
         this._nombre = nombre;
         this._apellido = apellido;
         this._edad = edad;
-        this.idPersona = ++Persona.contadorPersonas;
+        this._idPersona = ++Persona.contadorPersonas;
     }
 
     getIdPersona(){
-        return this.idPersona;
+        return this._idPersona;
     }
 
     get nombre(){
