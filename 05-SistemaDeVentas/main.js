@@ -42,7 +42,7 @@ class Orden{
 
     constructor(){
         this._idOrden = ++Orden.contadorOrdenes;
-        this._fecha = new Date();
+        this._fecha = new Date().toLocaleDateString();
         this._productos = [];
         this._contadorProductosAgregados = 0;
     }
@@ -73,9 +73,22 @@ class Orden{
         for(let producto of this._productos){
             productosOrden += producto.toString() + '\n';
         }
-        console.log(`Orden: ${this._idOrden}, fecha: ${this._fecha}, \n total: ${this.calcularTotal()}$, Productos: \n ${productosOrden}`);
+        return (`Orden: ${this._idOrden}, fecha: ${this._fecha}, total: ${this.calcularTotal()}$. Productos:\n${productosOrden}`);
     }
+
 }
 
 let producto = new Producto("Tablet", 200);
 console.log(producto.toString());
+
+let orden = new Orden();
+
+orden.agregarProducto(producto);
+orden.agregarProducto(new Producto("Audifonos", 100));
+orden.agregarProducto(new Producto("Teclado", 50));
+orden.agregarProducto(new Producto("Celular", 500));
+
+console.log(orden.calcularTotal());
+console.log(orden.mostrarOrden());
+
+orden.agregarProducto(new Producto("Laptop", 1000)); //No se puede agregar más productos porque se supera el límite
