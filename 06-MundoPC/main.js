@@ -41,8 +41,35 @@ class Raton extends DispositivoEntrada {
 
 }
 
+class Teclado extends DispositivoEntrada {
+    static contadorTeclados = 0;
+
+    constructor(tipoEntrada, marca) {
+        super(tipoEntrada, marca);
+        this._idTeclado = ++Teclado.contadorTeclados;
+    }
+
+    get idTeclado() {
+        return this._idTeclado;
+    }
+
+    toString() {
+        return `Teclado: [idTeclado: ${this._idTeclado}, tipoEntrada: ${this._tipoEntrada}, marca: ${this._marca}]`;
+    }
+}
+
+//Pruebas Ratón
+
 let raton = new Raton('USB', 'Logitech');
 console.log(raton.toString());
 raton = new Raton('USB', 'Dell');
 raton.marca = 'Asus';
 console.log(raton.toString());
+
+//Prueba Teclado
+
+let teclado = new Teclado('USB', 'Logitech');
+console.log(teclado.toString());
+teclado = new Teclado('Mecanico', 'Dell');
+teclado.marca = 'Asus';
+console.log(teclado.toString());
