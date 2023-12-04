@@ -40,3 +40,9 @@ class Raton extends DispositivoEntrada {
     }
 
 }
+
+let raton = new Raton('USB', 'Logitech');
+console.log(raton.toString());
+raton = new Raton('USB', 'Dell');
+raton.marca = 'Asus';
+console.log(raton.toString());
