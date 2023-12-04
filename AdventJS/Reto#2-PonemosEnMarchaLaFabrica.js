@@ -27,28 +27,14 @@ manufacture(gifts, materials) // []
 */
 
 function manufacture(gifts, materials) {
-  const array = [];
 
-  let canBeIncluded;
-  for (let i = 0; i < gifts.length; i++) {
-    canBeIncluded = true;
-    for (let j = 0; j < gifts[i].length; j++) {
-      if(!materials.includes(gifts[i][j])) {
-        canBeIncluded = false;
-      }
-    }
+  const regexp = new RegExp(`[^${materials}]+`);
+  return gifts.filter((gift) => !regexp.test(gift));
 
-    if(canBeIncluded) {
-      array.push(gifts[i]);
-    }
-  }
-
-  return array;
 }
 
 let gifts = ["tren", "oso", "pelota"];
 let materials = "tronesa";
-
 
 console.log(manufacture(gifts, materials));
 
@@ -62,5 +48,4 @@ materials = "psli";
 
 console.log(manufacture(gifts, materials));
 
-console.log(manufacture(['coche', 'muñeca', 'balon'], 'ocmuñalb'));
-
+console.log(manufacture(["coche", "muñeca", "balon"], "ocmuñalb"));
