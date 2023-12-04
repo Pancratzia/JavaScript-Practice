@@ -58,6 +58,40 @@ class Teclado extends DispositivoEntrada {
     }
 }
 
+class Monitor{
+    static contadorMonitores = 0;
+
+    constructor(tamanio, marca) {
+        this._idMonitor = ++Monitor.contadorMonitores;
+        this._tamanio = tamanio;
+        this._marca = marca;
+    }
+
+    get idMonitor() {        
+        return this._idMonitor;
+    }
+
+    get tamanio() {
+        return this._tamanio;
+    }
+
+    get marca() {
+        return this._marca;
+    }
+
+    set tamanio(tamanio) {
+        this._tamanio = tamanio;
+    }
+
+    set marca(marca) {
+        this._marca = marca;
+    }
+
+    toString() {
+        return `Monitor: [idMonitor: ${this._idMonitor}, tamaño: ${this._tamanio}, marca: ${this._marca}]`;
+    }
+}
+
 //Pruebas Ratón
 
 let raton = new Raton('USB', 'Logitech');
@@ -73,3 +107,11 @@ console.log(teclado.toString());
 teclado = new Teclado('Mecanico', 'Dell');
 teclado.marca = 'Asus';
 console.log(teclado.toString());
+
+//Prueba Monitor
+
+let monitor = new Monitor('20 pulgadas', 'Samsung');
+console.log(monitor.toString());
+monitor = new Monitor('15 pulgadas', 'Dell');
+monitor.marca = 'Asus';
+console.log(monitor.toString());
