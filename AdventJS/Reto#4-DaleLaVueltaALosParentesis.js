@@ -14,7 +14,10 @@ console.log(c) // santaclaus
 */
 
 function decode(message) {
-  return "";
+  const regExp = /\(([^()]+)\)/g;
+  const replacer = (_, group) => [...group].reverse().join("");
+
+  return message.replace(regExp, replacer).replace(regExp, replacer);
 }
 
 const a = decode("hola (odnum)");
