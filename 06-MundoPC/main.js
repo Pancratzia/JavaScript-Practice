@@ -92,26 +92,54 @@ class Monitor{
     }
 }
 
+class Computadora{
+
+    static contadorComputadoras = 0;
+
+    constructor(nombre, monitor, teclado, raton) {
+        this._idComputadora = ++Computadora.contadorComputadoras;
+        this._nombre = nombre;
+        this._monitor = monitor;
+        this._teclado = teclado;
+        this._raton = raton;
+    }
+
+    toString() {
+        return `Computadora ${this._idComputadora}: ${this._nombre}\n
+        ${this._monitor}\n
+        ${this._teclado}\n
+        ${this._raton}`;
+    }
+}
+
 //Pruebas Ratón
 
 let raton = new Raton('USB', 'Logitech');
 console.log(raton.toString());
-raton = new Raton('USB', 'Dell');
-raton.marca = 'Asus';
-console.log(raton.toString());
+let raton2 = new Raton('USB', 'Dell');
+raton2.marca = 'Asus';
+console.log(raton2.toString());
 
 //Prueba Teclado
 
 let teclado = new Teclado('USB', 'Logitech');
 console.log(teclado.toString());
-teclado = new Teclado('Mecanico', 'Dell');
-teclado.marca = 'Asus';
-console.log(teclado.toString());
+let teclado2 = new Teclado('Mecanico', 'Dell');
+teclado2.marca = 'Asus';
+console.log(teclado2.toString());
 
 //Prueba Monitor
 
 let monitor = new Monitor('20 pulgadas', 'Samsung');
 console.log(monitor.toString());
-monitor = new Monitor('15 pulgadas', 'Dell');
-monitor.marca = 'Asus';
-console.log(monitor.toString());
+let monitor2 = new Monitor('15 pulgadas', 'Dell');
+monitor2.marca = 'Asus';
+console.log(monitor2.toString());
+
+//Prueba Computadora
+
+let computadora = new Computadora('Asus', monitor, teclado, raton2);
+console.log(computadora.toString());
+
+let computadora2 = new Computadora('Dell', monitor2, teclado2, raton);
+console.log(computadora2.toString());
