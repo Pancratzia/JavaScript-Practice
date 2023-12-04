@@ -29,11 +29,7 @@ const giftIds2 = [1, 2, 3, 4];
 const giftIds3 = [5, 1, 5, 1];
 
 function findFirstRepeated(gifts) {
-  return (
-    gifts.filter((gift, index) => {
-      return gifts.indexOf(gift) !== index;
-    })[0] ?? -1
-  );
+  return gifts.filter((gift, index) => gifts.indexOf(gift) !== index)[0] ?? -1;
 }
 
 console.log(findFirstRepeated(giftIds));
