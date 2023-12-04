@@ -112,6 +112,34 @@ class Computadora{
     }
 }
 
+class Orden{
+
+    static contadorOrdenes = 0;
+
+    constructor() {
+        this._idOrden = ++Orden.contadorOrdenes;
+        this._computadoras = [];
+    }
+
+    get idOrden() {
+        return this._idOrden;
+    }
+
+    agregarComputadora(computadora) {
+        this._computadoras.push(computadora);
+    }
+
+    mostrarOrden() {
+        let computadorasOrden = '';
+
+        for(let computadora of this._computadoras) {
+            computadorasOrden += `${computadora}\n`;
+        }
+
+        console.log(`Orden: ${this._idOrden}. Computadoras: \n${computadorasOrden}`);
+    }
+}
+
 //Pruebas Ratón
 
 let raton = new Raton('USB', 'Logitech');
@@ -143,3 +171,18 @@ console.log(computadora.toString());
 
 let computadora2 = new Computadora('Dell', monitor2, teclado2, raton);
 console.log(computadora2.toString());
+
+//Prueba Orden
+
+let orden = new Orden();
+orden.agregarComputadora(computadora);
+orden.agregarComputadora(computadora2);
+
+orden.mostrarOrden();
+
+computadora._monitor.tamanio = '30 pulgadas';
+computadora2._teclado.marca = 'Logitech';
+
+orden.agregarComputadora(computadora);
+
+orden.mostrarOrden();
