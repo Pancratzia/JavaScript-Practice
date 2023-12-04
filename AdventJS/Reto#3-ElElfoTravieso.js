@@ -22,22 +22,16 @@ La modificación puede ocurrir en cualquier lugar de la cadena.
 La secuencia original puede estar vacía */
 
 function findNaughtyStep(original, modified) {
-  let modifiedChar = "";
-
-  const length =
-    original.length > modified.length ? original.length : modified.length;
-
+  const length = Math.max(original.length, modified.length);
   for (let i = 0; i < length; i++) {
     if (original[i] !== modified[i]) {
-      modifiedChar = original[i];
-      if (modifiedChar === undefined || modified[i + 1] === original[i]) {
-        modifiedChar = modified[i];
+      if (original[i] === undefined || modified[i + 1] === original[i]) {
+        return modified[i];
       }
-      break;
+      return original[i];
     }
   }
-
-  return modifiedChar;
+  return "";
 }
 
 let original = "abcd";

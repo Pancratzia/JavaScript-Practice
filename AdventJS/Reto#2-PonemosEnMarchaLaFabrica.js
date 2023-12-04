@@ -27,10 +27,9 @@ manufacture(gifts, materials) // []
 */
 
 function manufacture(gifts, materials) {
-
-  const regexp = new RegExp(`[^${materials}]+`);
-  return gifts.filter((gift) => !regexp.test(gift));
-
+  return gifts
+      .filter(gift => [...gift].every(el => materials.includes(el)))
+      .map((el, i) => el && gifts[i])
 }
 
 let gifts = ["tren", "oso", "pelota"];
