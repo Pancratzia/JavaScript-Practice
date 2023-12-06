@@ -28,7 +28,7 @@ class Gerente extends Empleado{
     }
 
     obtenerDetalles(){
-        return `Gerente: ${this._nombre} - Su sueldo es de ${this._sueldo} - Departamento: ${this._departamento}`;
+        return `Gerente:\n${super.obtenerDetalles()}\nDepartamento: ${this._departamento}`;
     }
 
 }
