@@ -41,26 +41,30 @@ drawGift(4, '+')
 //Nota: Ten en cuenta que, en los tests, la primera línea se ve empujada por el caracter ".
 
 function drawGift(size, symbol) {
-  let box = "";
   if (size === 1) return "#\n";
-  if (size >= 2) {
-    const repeatedSymbol = symbol.repeat(size - 2);
-    const spaces = " ".repeat(size - 1);
-    box += `${spaces}${"#".repeat(size)}\n`;
-    for (let i = 0; i < size - 2; i++) {
-      const count = size - 2 - i;
-      box += `${" ".repeat(count)}#${repeatedSymbol}#${symbol.repeat(i)}#\n`;
-    }
-    box += `${"#".repeat(size)}${repeatedSymbol}#\n`;
-    for (let i = size - 3; i >= 0; i--) {
-      box += `#${repeatedSymbol}#${symbol.repeat(i)}#\n`;
-    }
+
+  let box = "";
+
+  const repeatedSymbol = symbol.repeat(size - 2);
+  const spaces = " ".repeat(size - 1);
+
+  box += `${spaces}${"#".repeat(size)}\n`;
+  for (let i = 0; i < size - 2; i++) {
+    const count = size - 2 - i;
+    box += `${" ".repeat(count)}#${repeatedSymbol}#${symbol.repeat(i)}#\n`;
   }
+
+  box += `${"#".repeat(size)}${repeatedSymbol}#\n`;
+  for (let i = size - 3; i >= 0; i--) {
+    box += `#${repeatedSymbol}#${symbol.repeat(i)}#\n`;
+  }
+
   box += `${"#".repeat(size)}\n`;
+
   return box;
 }
 
-drawGift(4, '+')
+console.log(drawGift(4, "+"));
 
 /*
    ####
@@ -72,7 +76,7 @@ drawGift(4, '+')
 ####
 */
 
-drawGift(5, '*')
+console.log(drawGift(5, "*"));
 /*
     #####
    #***##
@@ -85,7 +89,8 @@ drawGift(5, '*')
 #####
 */
 
-drawGift(1, '^')
+console.log(drawGift(1, "^"));
+
 /*
 #
 */
