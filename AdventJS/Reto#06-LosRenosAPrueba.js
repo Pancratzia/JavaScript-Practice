@@ -31,37 +31,30 @@ Ten en cuenta que no importa si es a la izquierda o la derecha, la distancia es 
 */
 
 function maxDistance(movements) {
-  
-  let result = 0;
-  let extra = 0;
 
-  for(let i = 0; i < movements.length; i++) {
-    switch(movements[i]) {
-      case '>':
-        result++;
-        break;
-      case '<':
-        result--;
-        break;
-      case '*':
-        extra++;
-        break;
-    }
-  }
-  return Math.abs(result) + extra;
+  let distance = 0;
+
+  let right = movements.match(/\>/g)?.length || 0;
+  let left = movements.match(/\</g)?.length || 0;
+
+  distance += right;
+  distance -= left;
+
+  let extra = movements.length - (right + left);
+
+  distance = Math.abs(distance);
+
+  return distance + extra;
 }
 
-const movements = '>>*<'
-const result = maxDistance(movements)
-console.log(result) // -> 2
+const movements = ">>*<";
+const result = maxDistance(movements);
+console.log(result); // -> 2
 
+const movements2 = "<<<>";
+const result2 = maxDistance(movements2);
+console.log(result2); // -> 2
 
-const movements2 = '<<<>'
-const result2 = maxDistance(movements2)
-console.log(result2) // -> 2
-
-const movements3 = '>***>'
-const result3 = maxDistance(movements3)
-console.log(result3) // -> 5
-
-
+const movements3 = ">***>";
+const result3 = maxDistance(movements3);
+console.log(result3); // -> 5
