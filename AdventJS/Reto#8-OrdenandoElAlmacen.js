@@ -25,6 +25,31 @@ console.log(result1)
 */
 
 function organizeGifts(gifts) {
-  // Code here
-  return "";
+  const arrayQuantities = gifts.match(/[1-9]\d*/g);
+  const arrayLetters = gifts.match(/[a-z]/g);
+  let result = '';
+  
+  arrayLetters.forEach((letter, index) => {
+    let quantity = arrayQuantities[index];
+    let box = `[${letter}]`;
+
+    result+= box.repeat(Math.floor(quantity/50));
+    
+    quantity %= 50;
+
+    if (quantity > 0) {
+        box = `{${letter}}`;
+      result += box.repeat(Math.floor(quantity/10));
+      quantity %= 10;
+    }
+
+    if (quantity > 0) {
+      result += `(` + letter.repeat(quantity) + `)`;
+    }
+    
+  });
+  
+  return result;
 }
+
+console.log(organizeGifts(`76a11b`));
