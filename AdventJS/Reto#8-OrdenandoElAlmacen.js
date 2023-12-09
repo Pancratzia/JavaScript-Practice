@@ -27,28 +27,22 @@ console.log(result1)
 function organizeGifts(gifts) {
   const arrayQuantities = gifts.match(/[1-9]\d*/g);
   const arrayLetters = gifts.match(/[a-z]/g);
-  let result = '';
-  
-  arrayLetters.forEach((letter, index) => {
-    let quantity = arrayQuantities[index];
-    let box = `[${letter}]`;
+  let result = "";
 
-    result+= box.repeat(Math.floor(quantity/50));
-    
-    quantity %= 50;
+  for (let i = 0; i < arrayLetters.length; i++) {
+    let letter = arrayLetters[i];
+    let quantity = arrayQuantities[i];
+    let box = quantity / 50;
+    quantity = quantity % 50;
+    let stack = quantity / 10;
+    quantity = quantity % 10;
+    let bag = quantity;
 
-    if (quantity > 0) {
-        box = `{${letter}}`;
-      result += box.repeat(Math.floor(quantity/10));
-      quantity %= 10;
-    }
+    result += `[${letter}]`.repeat(box);
+    result += stack > 0 ? `{${letter}}`.repeat(stack) : "";
+    result += bag > 0 ? `(${letter.repeat(bag)})` : "";
+  }
 
-    if (quantity > 0) {
-      result += `(` + letter.repeat(quantity) + `)`;
-    }
-    
-  });
-  
   return result;
 }
 
