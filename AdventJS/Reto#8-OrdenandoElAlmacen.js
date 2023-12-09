@@ -28,10 +28,12 @@ function organizeGifts(gifts) {
   const matches = gifts.matchAll(/(\d+)([a-z])/g);
   let result = "";
   for (const match of matches) {
-    const [, count, letter] = match;
+    const count = match[1];
+    const letter = match[2];
     const boxes = Math.floor(count / 50);
     const pallets = Math.floor((count % 50) / 10);
     const bags = count % 10;
+
     result += `[${letter}]`.repeat(boxes);
     if (pallets) {
       result += `{${letter}}`.repeat(pallets);
