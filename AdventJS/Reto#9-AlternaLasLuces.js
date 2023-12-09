@@ -9,7 +9,7 @@ Nos han pedido que escribamos una función adjustLights que, dado un array de st
 adjustLights(['🟢', '🔴', '🟢', '🟢', '🟢'])
 // -> 1 (cambias la cuarta luz a 🔴)
 
-adjustLights(['🔴', '🔴', '🟢', '🟢', '🔴'])
+adjustLights(['🔴', '🔴', '🟢', '🟢', '🔴'])z
 // -> 2 (cambias la segunda luz a 🟢 y la tercera a 🔴)
 
 adjustLights(['🟢', '🔴', '🟢', '🔴', '🟢'])
@@ -21,6 +21,29 @@ adjustLights(['🔴', '🔴', '🔴'])
 */
 
 function adjustLights(lights) {
-    // Code here
-    return 0
-  }
+  let countTurnRed = 0;
+  let countTurnGreen = 0;
+
+  lights.forEach((light, index) => {
+    if (index % 2 === 0) {
+      if (light === "🔴") {
+        countTurnRed++;
+      } else {
+        countTurnGreen++;
+      }
+    } else {
+      if (light === "🟢") {
+        countTurnRed++;
+      } else {
+        countTurnGreen++;
+      }
+    }
+  });
+
+  return Math.min(countTurnRed, countTurnGreen);
+}
+
+console.log(adjustLights(["🟢", "🔴", "🟢", "🟢", "🟢"]));
+console.log(adjustLights(["🔴", "🔴", "🟢", "🟢", "🔴"]));
+console.log(adjustLights(["🟢", "🔴", "🟢", "🔴", "🟢"]));
+console.log(adjustLights(["🔴", "🔴", "🔴"]));
