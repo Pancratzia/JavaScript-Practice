@@ -25,25 +25,23 @@ console.log(result1)
 */
 
 function organizeGifts(gifts) {
-  const arrayQuantities = gifts.match(/[1-9]\d*/g);
-  const arrayLetters = gifts.match(/[a-z]/g);
+  const matches = gifts.matchAll(/(\d+)([a-z])/g);
   let result = "";
-
-  for (let i = 0; i < arrayLetters.length; i++) {
-    let letter = arrayLetters[i];
-    let quantity = arrayQuantities[i];
-    let box = quantity / 50;
-    quantity = quantity % 50;
-    let stack = quantity / 10;
-    quantity = quantity % 10;
-    let bag = quantity;
-
-    result += `[${letter}]`.repeat(box);
-    result += stack > 0 ? `{${letter}}`.repeat(stack) : "";
-    result += bag > 0 ? `(${letter.repeat(bag)})` : "";
+  for (const match of matches) {
+    const [, count, letter] = match;
+    const boxes = Math.floor(count / 50);
+    const pallets = Math.floor((count % 50) / 10);
+    const bags = count % 10;
+    result += `[${letter}]`.repeat(boxes);
+    if (pallets) {
+      result += `{${letter}}`.repeat(pallets);
+    }
+    if (bags) {
+      result += `(${letter.repeat(bags)})`;
+    }
   }
-
   return result;
 }
+
 
 console.log(organizeGifts(`76a11b`));
