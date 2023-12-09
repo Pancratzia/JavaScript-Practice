@@ -26,17 +26,9 @@ function adjustLights(lights) {
 
   lights.forEach((light, index) => {
     if (index % 2 === 0) {
-      if (light === "🔴") {
-        countTurnRed++;
-      } else {
-        countTurnGreen++;
-      }
+      light === "🔴" ? countTurnGreen++ : countTurnRed++;
     } else {
-      if (light === "🟢") {
-        countTurnRed++;
-      } else {
-        countTurnGreen++;
-      }
+      light === "🔴" ? countTurnRed++ : countTurnGreen++;
     }
   });
 
