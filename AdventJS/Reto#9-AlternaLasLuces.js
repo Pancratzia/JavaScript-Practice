@@ -23,16 +23,27 @@ adjustLights(['🔴', '🔴', '🔴'])
 function adjustLights(lights) {
   let countTurnRed = 0;
   let countTurnGreen = 0;
+  let count = 0;
 
-  lights.forEach((light, index) => {
-    if (index % 2 === 0) {
-      light === "🔴" ? countTurnGreen++ : countTurnRed++;
+  for (let i = 0; i < lights.length; i++) {
+    if (i % 2 === 0) {
+      if (lights[i] === "🔴") {
+        countTurnGreen++;
+      } else {
+        countTurnRed++;
+      }
     } else {
-      light === "🔴" ? countTurnRed++ : countTurnGreen++;
+      if (lights[i] === "🔴") {
+        countTurnRed++;
+      } else {
+        countTurnGreen++;
+      }
     }
-  });
+  }
 
-  return Math.min(countTurnRed, countTurnGreen);
+  count = Math.min(countTurnRed, countTurnGreen);
+
+  return count;
 }
 
 console.log(adjustLights(["🟢", "🔴", "🟢", "🟢", "🟢"]));
