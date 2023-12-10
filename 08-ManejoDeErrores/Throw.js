@@ -8,6 +8,8 @@ try{
   }else if(x < 0 && x%2!==0){
       throw "Si el número es negativo, debe ser impar";
   }
+
+  console.log("Si hay un error, esto no se ejecuta, pues el programa no termina su ejecución y pasa al catch");
 }catch(e){
   console.log(e);
 
