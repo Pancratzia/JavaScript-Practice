@@ -38,8 +38,10 @@ function createChristmasTree(ornaments, height) {
   for (let i = 0; i < height; i++) {
     tree += `${" ".repeat(whiteSpace)}`;
     for (let j = 0; j < ornamentsToPlace; j++) {
-      let LeftSpace = j === 0 ? "" : " ";
-      tree += LeftSpace + ornaments[ornamentIndex];
+      if (j > 0) {
+        tree += " ";
+      }
+      tree += ornaments[ornamentIndex];
 
       if (ornamentIndex === ornaments.length - 1) {
         ornamentIndex = 0;
