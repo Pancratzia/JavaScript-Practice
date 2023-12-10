@@ -27,3 +27,12 @@ function sumar (x, y, functionCallback){
 }
 
 sumar(2, 3, imprimirFlecha); //Pueden usarse funciones flecha y genericas
+
+
+//Llamadas asincronas con uso del setTimeout
+
+function miFuncionCallback() {
+    console.log("Esto es una función callback que se va a ejecutar luego de 3 segundos");
+}
+
+setTimeout(miFuncionCallback, 3000);
