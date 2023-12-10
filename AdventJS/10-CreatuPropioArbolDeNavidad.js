@@ -30,29 +30,30 @@ Los adornos tienen un espacio en blanco entre ellos de separación.
 */
 
 function createChristmasTree(ornaments, height) {
-  let center = height === 0 ? "" : `${" ".repeat(height - 1)}|\n`;
   let tree = "";
   let whiteSpace = height - 1;
-  let ornamentToPrint = 0;
+  let ornamentIndex = 0;
   let ornamentsToPlace = 1;
 
   for (let i = 0; i < height; i++) {
     tree += `${" ".repeat(whiteSpace)}`;
     for (let j = 0; j < ornamentsToPlace; j++) {
-      let hasLeftSpace = j === 0 ? "" : " ";
-      tree += `${hasLeftSpace}${ornaments[ornamentToPrint]}`;
-      ornamentToPrint === ornaments.length - 1
-        ? (ornamentToPrint = 0)
-        : ornamentToPrint++;
+      let LeftSpace = j === 0 ? "" : " ";
+      tree += LeftSpace + ornaments[ornamentIndex];
+
+      if (ornamentIndex === ornaments.length - 1) {
+        ornamentIndex = 0;
+      } else {
+        ornamentIndex++;
+      }
     }
     ornamentsToPlace++;
     whiteSpace--;
     tree += "\n";
   }
 
-  tree += center;
+  tree += " ".repeat(height - 1) + "|\n";
   return tree;
 }
 
 console.log(createChristmasTree("*@o", 3));
-console.log(createChristmasTree("x", 0));
