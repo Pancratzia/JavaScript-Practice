@@ -17,9 +17,13 @@ function imprimir(mensaje){ //Una función de tipo callback es una función que 
     console.log(mensaje);
 }
 
+const imprimirFlecha = (mensaje) => {
+    console.log(mensaje);
+}
+
 function sumar (x, y, functionCallback){
     let res = x + y;
     functionCallback(`La suma es: ${res}`);
 }
 
-sumar(2, 3, imprimir);
+sumar(2, 3, imprimirFlecha); //Pueden usarse funciones flecha y genericas
