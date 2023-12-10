@@ -36,3 +36,11 @@ function miFuncionCallback() {
 }
 
 setTimeout(miFuncionCallback, 3000);
+setTimeout(function(){
+    console.log("Esto es una función callback que se va a ejecutar luego de 1 segundo");   
+}, 1000);
+setTimeout(() => {
+    console.log("Esto es una función callback que se va a ejecutar luego de medio segundo");
+}, 500);
+
+console.log("Esto se ejecuta antes de que la función setTimeout se ejecute");
