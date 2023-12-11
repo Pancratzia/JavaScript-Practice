@@ -22,5 +22,37 @@ Si se puede formar el palíndromo con diferentes intercambios, siempre se debe d
 */
 
 function getIndexsForPalindrome(word) {
-    return [0, 0]
+  const reverseWord = (word) => word.split("").reverse().join("");
+
+  const switchCharacters = (word, indexs) => {
+    const newWord = [...word];
+    newWord[indexs[0]] = word[indexs[1]];
+    newWord[indexs[1]] = word[indexs[0]];
+    return newWord.join("");
+  };
+
+  if (word === reverseWord(word)) return [];
+
+  let indexs = null;
+
+  for (let i = 0; i < word.length - 1; i++) {
+    for (let j = i + 1; j < word.length; j++) {
+      const newWord = switchCharacters(word, [i, j]);
+
+      if (newWord === reverseWord(newWord)) {
+        indexs = [i, j];
+      }
+    }
+
+    if (indexs !== null) break;
   }
+
+  return indexs;
+}
+
+console.log(getIndexsForPalindrome("anna"));
+console.log(getIndexsForPalindrome("abab"));
+console.log(getIndexsForPalindrome("abac"));
+console.log(getIndexsForPalindrome("aaaaaaaa"));
+console.log(getIndexsForPalindrome("aaababa"));
+console.log(getIndexsForPalindrome("caababa"));
