@@ -22,25 +22,20 @@ Si se puede formar el palíndromo con diferentes intercambios, siempre se debe d
 */
 
 function getIndexsForPalindrome(word) {
-  const reverseWord = (word) => word.split("").reverse().join("");
-
-  const switchCharacters = (word, indexs) => {
-    const newWord = [...word];
-    newWord[indexs[0]] = word[indexs[1]];
-    newWord[indexs[1]] = word[indexs[0]];
-    return newWord.join("");
-  };
-
-  if (word === reverseWord(word)) return [];
+  if (word === word.split("").reverse().join("")) return [];
 
   let indexs = null;
 
   for (let i = 0; i < word.length - 1; i++) {
     for (let j = i + 1; j < word.length; j++) {
-      const newWord = switchCharacters(word, [i, j]);
+      let newWord = [...word];
+      newWord[i] = word[j];
+      newWord[j] = word[i];
+      newWord = newWord.join("");
 
-      if (newWord === reverseWord(newWord)) {
+      if (newWord === newWord.split("").reverse().join("")) {
         indexs = [i, j];
+        break;
       }
     }
 
