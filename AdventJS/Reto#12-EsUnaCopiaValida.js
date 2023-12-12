@@ -38,21 +38,33 @@ Basado en el desafío de CodeWars Photocopy decay
 */
 
 function checkIsValidCopy(original, copy) {
-  for (let i = 0; i < original.length; i++) {
-    const originalChar = original[i].toLowerCase();
-    let copyChar = copy[i];
+  let isValid = true;
+  let index = 0;
 
-    const validChars = ["#", "+", ":", ".", " "];
+  for (const letter of original) {
+    const copyLetter = copy[index];
+    index++;
 
-    if (
-      (originalChar !== copyChar && !validChars.includes(copyChar)) ||
-      (originalChar === " " && copyChar !== " ")
-    ) {
-      return false;
-    }
+    const isValidLetter = [
+      letter.toLowerCase(),
+      "#",
+      "+",
+      ":",
+      ".",
+      " ",
+    ].includes(copyLetter);
+
+    const isCopyLetterBlankSpace = copyLetter === " ";
+    const isLetterBlankSpace = letter === " ";
+
+    const isValidCharacter = [isValidLetter, isCopyLetterBlankSpace][
+      +isLetterBlankSpace
+    ];
+
+    isValid = [isValid, isValidCharacter][+isValid];
   }
 
-  return true;
+  return isValid;
 }
 
 console.log(checkIsValidCopy("Santa Claus is coming", "sa#ta cl#us is comin#"));
