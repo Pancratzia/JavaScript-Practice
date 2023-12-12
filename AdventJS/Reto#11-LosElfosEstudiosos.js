@@ -22,27 +22,25 @@ Si se puede formar el palíndromo con diferentes intercambios, siempre se debe d
 */
 
 function getIndexsForPalindrome(word) {
+  
   if (word === word.split("").reverse().join("")) return [];
-
-  let indexs = null;
 
   for (let i = 0; i < word.length - 1; i++) {
     for (let j = i + 1; j < word.length; j++) {
-      let newWord = [...word];
-      newWord[i] = word[j];
-      newWord[j] = word[i];
-      newWord = newWord.join("");
+      const newWord =
+        word.slice(0, i) +
+        word[j] +
+        word.slice(i + 1, j) +
+        word[i] +
+        word.slice(j + 1);
 
       if (newWord === newWord.split("").reverse().join("")) {
-        indexs = [i, j];
-        break;
+        return [i, j];
       }
     }
-
-    if (indexs !== null) break;
   }
 
-  return indexs;
+  return null;
 }
 
 console.log(getIndexsForPalindrome("anna"));
