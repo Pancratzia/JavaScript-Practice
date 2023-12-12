@@ -1,4 +1,4 @@
-let miPromesa = new Promise((resolver, rechazar) => {
+/*let miPromesa = new Promise((resolver, rechazar) => {
   let expresion = false;
   if (expresion) {
     resolver("La promesa se ha resuelto correctamente");
@@ -15,3 +15,12 @@ miPromesa.then(
 miPromesa
   .then((valor) => console.log(valor))
   .catch((error) => console.log(error));
+*/
+
+let promesa = new Promise((resolver) => {
+  console.log("Se crea la promesa");
+  setTimeout(() => resolver("Se resolvio la promesa"), 3000);
+  console.log("Se termina la promesa");
+});
+
+promesa.then((valor) => console.log(valor));
