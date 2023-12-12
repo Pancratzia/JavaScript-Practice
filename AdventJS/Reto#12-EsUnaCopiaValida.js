@@ -38,18 +38,14 @@ Basado en el desafío de CodeWars Photocopy decay
 */
 
 function checkIsValidCopy(original, copy) {
-
   for (let i = 0; i < original.length; i++) {
     const originalChar = original[i].toLowerCase();
     let copyChar = copy[i];
 
+    const validChars = ["#", "+", ":", ".", " "];
+
     if (
-      (originalChar !== copyChar &&
-        copyChar !== "#" &&
-        copyChar !== "+" &&
-        copyChar !== ":" &&
-        copyChar !== "." &&
-        copyChar !== " ") ||
+      (originalChar !== copyChar && !validChars.includes(copyChar)) ||
       (originalChar === " " && copyChar !== " ")
     ) {
       return false;
