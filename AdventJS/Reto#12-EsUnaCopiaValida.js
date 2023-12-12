@@ -38,5 +38,28 @@ Basado en el desafío de CodeWars Photocopy decay
 */
 
 function checkIsValidCopy(original, copy) {
+
+  for (let i = 0; i < original.length; i++) {
+    const originalChar = original[i].toLowerCase();
+    let copyChar = copy[i];
+
+    if (
+      (originalChar !== copyChar &&
+        copyChar !== "#" &&
+        copyChar !== "+" &&
+        copyChar !== ":" &&
+        copyChar !== "." &&
+        copyChar !== " ") ||
+      (originalChar === " " && copyChar !== " ")
+    ) {
+      return false;
+    }
+  }
+
   return true;
 }
+
+console.log(checkIsValidCopy("Santa Claus is coming", "sa#ta cl#us is comin#"));
+console.log(checkIsValidCopy("Santa Claus is coming", "p#nt: cla#s #s c+min#"));
+console.log(checkIsValidCopy("Santa Claus", "s#+:. c+:. s"));
+console.log(checkIsValidCopy("Santa Claus", "s#+:.#c:. s"));
