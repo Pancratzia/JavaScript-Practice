@@ -24,5 +24,23 @@ calculateTime([
 */
 
 function calculateTime(deliveries) {
-  return "00:00:00";
+  let counter = 0;
+  const DATE = "1999-09-18T";
+  const today = new Date(DATE + "00:00:00");
+  for (let hours of deliveries) {
+    const result = new Date(DATE + hours).getTime();
+    counter += result - today.getTime();
+  }
+  const siete = new Date(DATE + "07:00:00").getTime();
+  today.setMilliseconds(counter);
+  const diff = siete - today.getTime();
+
+  if (diff > 0) {
+    return `-${new Date(diff).toISOString().slice(11, 19)}`;
+  } else {
+    return new Date(Math.abs(diff)).toISOString().slice(11, 19);
+  }
 }
+
+console.log(calculateTime(["00:10:00", "01:00:00", "03:30:00"]));
+console.log(calculateTime(["02:00:00", "05:00:00", "00:30:00"]));
