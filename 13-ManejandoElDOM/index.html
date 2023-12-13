@@ -7,11 +7,15 @@
 </head>
 <body>
 
-    <h1>Ejemplo de Manipulación del DOM</h1>
-    <p>En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
+    <h1 id="heading">Ejemplo de Manipulación del DOM</h1>
+    <p id="text">En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
 
     <script>
-        alert("Hola Mundo");
+        let heading = document.getElementById("heading");
+        console.log(`El heading es de tipo: ${typeof heading}`);
+        console.log(`Valor del heading: ${heading.innerHTML}`);
+        let text = document.getElementById("text").innerHTML;
+        console.log(`Valor del texto: ${text}`);
     </script>
     
 </body>
