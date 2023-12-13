@@ -18,9 +18,15 @@ miPromesa
 */
 
 let promesa = new Promise((resolver) => {
-  console.log("Se crea la promesa");
+  //console.log("Se crea la promesa");
   setTimeout(() => resolver("Se resolvio la promesa"), 3000);
-  console.log("Se termina la promesa");
+  //console.log("Se termina la promesa");
 });
 
-promesa.then((valor) => console.log(valor));
+//promesa.then((valor) => console.log(valor));
+
+async function miFuncionConPromesa(){
+  return 'Saludos con promesa y async';
+}
+
+miFuncionConPromesa().then((valor) => console.log(valor));
