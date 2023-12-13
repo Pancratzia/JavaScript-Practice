@@ -11,11 +11,15 @@
     <p id="text">En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
 
     <script>
+        //el script debe estar después de los elementos que se quieren manipular
         let heading = document.getElementById("heading");
         console.log(`El heading es de tipo: ${typeof heading}`);
         console.log(`Valor del heading: ${heading.innerHTML}`);
-        let text = document.getElementById("text").innerHTML;
-        console.log(`Valor del texto: ${text}`);
+        let text = document.getElementById("text");
+        console.log(`Valor del texto: ${text.innerHTML}`);
+
+        text.innerHTML = 'Este párrafo fue modificado con JavaScript';
+        heading.innerHTML = 'Este h1 fue modificado con JavaScript';
     </script>
     
 </body>
