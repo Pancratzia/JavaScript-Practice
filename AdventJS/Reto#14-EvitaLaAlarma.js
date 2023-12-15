@@ -15,5 +15,23 @@ maxGifts([1, 3, 1, 3, 100]) // 103 (3 + 100)
 */
 
 function maxGifts(houses) {
-  return 0;
+  const array = [];
+
+  array[0] = houses[0];
+  array[1] = Math.max(houses[0], houses[1]);
+
+  let i = 2;
+
+  for (const gifts of houses.slice(2)) {
+    array[i] = Math.max(array[i - 1], array[i - 2] + gifts);
+
+    i++;
+  }
+
+  return array[houses.length - 1];
 }
+
+console.log(maxGifts([2, 4, 2])); // 4 (4)
+console.log(maxGifts([5, 1, 1, 5])); // 10 (5 + 5)
+console.log(maxGifts([4, 1, 1, 4, 2, 1])); // 9 (4 + 4 + 1)
+console.log(maxGifts([1, 3, 1, 3, 100])); // 103 (3 + 100)
