@@ -40,5 +40,34 @@ También que el robot es posible que termine en su posición inicial si no puede
 */
 
 function autonomousDrive(store, movements) {
+  const n = store.length;
+  const m = store[0].length;
+  let x, y;
+  for (let i = 0; i < n; i++) {
+    const index = store[i].indexOf('!');
+    if (index !== -1) {
+      x = index;
+      y = i;
+      break;
+    }
+  }
+  store[y] = store[y].substring(0, x) + '.' + store[y].substring(x + 1);
+  movements.forEach(move => {
+    if (move === 'R' && x !== m - 1 && store[y][x + 1] === '.') {
+      x++;
+    } else if (move === 'L' && x !== 0 && store[y][x - 1] === '.') {
+      x--;
+    } else if (move === 'D' && y !== n - 1 && store[y + 1][x] === '.') {
+      y++;
+    } else if (move === 'U' && y !== 0 && store[y - 1][x] === '.') {
+      y--;
+    }
+  });
+  store[y] = store[y].substring(0, x) + '!' + store[y].substring(x + 1);
   return store;
 }
+
+const store = ['..!....', '...*.*.']
+const movements = ['R', 'R', 'D', 'L']
+const result = autonomousDrive(store, movements)
+console.log(result)
