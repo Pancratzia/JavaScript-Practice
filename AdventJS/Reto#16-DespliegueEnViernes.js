@@ -47,5 +47,22 @@ Existe una relación entre el índice de un nodo y el índice de sus hijos. ¡Bu
 */
 
 function transformTree(tree) {
-  return tree;
+  function createTree(tree, n) {
+    let node = null;
+    if (n < tree.length && tree[n] != null) {
+
+      const value = tree[n];
+      const left = createTree(tree, n * 2 + 1);
+      const right = createTree(tree, n * 2 + 2);
+      
+      node = { value, left, right };
+    }
+    return node;
+  }
+
+  const treeOBJ = createTree(tree, 0);
+
+  return treeOBJ;
 }
+
+console.log(transformTree([3, 1, 0, 8, 12, null, 1]));
