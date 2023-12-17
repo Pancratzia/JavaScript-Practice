@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <h1 id="titulo" class="titulo">Manejo de eventos - 2</h1>
+    
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" placeholder="Escriba su nombre" onchange="convertir(this)">
+    </div>
+
+    <br>
+
+    <a href="./">Index</a>
+
+    <script>
+
+        function convertir(input){
+            input.value = input.value.toUpperCase();
+        }
+
+    </script>
+    
+</body>
+</html>
