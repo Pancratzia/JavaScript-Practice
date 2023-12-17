@@ -16,10 +16,13 @@
 
     <button onclick="mostrar()">Mostrar</button>
     <button onclick="cambiar()">Cambiar Imagen</button>
+    <button onclick="cambiarbg()">Cambiar Color de Fondo</button>
 
 
     <script>
         //document.write('Saludos desde el archivo cambios.html'); //Se debe tener cuidado con él pues puede sobrescribir los elementos del DOM
+
+        const colores = ['red', 'green', 'blue', 'yellow', 'pink', 'orange', 'purple', 'white', 'gray'];
 
         function mostrar() {
             document.getElementById('titulo').innerHTML += '<br>Este título ha sido modificado con JavaScript';
@@ -28,6 +31,10 @@
 
         function cambiar() {
             document.getElementById('imagen').src = 'https://picsum.photos/300';
+        }
+
+        function cambiarbg() {
+            document.body.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
         }
     </script>
 </body>
