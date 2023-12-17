@@ -9,6 +9,7 @@
 
     <h1 id="heading">Ejemplo de Manipulación del DOM</h1>
     <p id="text">En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
+    <p id="text2">Este es otro párrafo para prácticar la manipulación del DOM con Javascript</p>
 
     <script>
         //el script debe estar después de los elementos que se quieren manipular
@@ -17,6 +18,12 @@
         console.log(`Valor del heading: ${heading.innerHTML}`);
         let text = document.getElementById("text");
         console.log(`Valor del texto: ${text.innerHTML}`);
+
+        let parrafos = document.getElementsByTagName("P"); //Puede usarse en mayúsculas o minúsculas
+        console.log(`En este documento hay ${parrafos.length} párrafos`);
+        for (let i = 0; i < parrafos.length; i++) {
+            console.log(`Párrafo ${i + 1}: ${parrafos[i].innerHTML}`);
+        }
 
         text.innerHTML = 'Este párrafo fue modificado con JavaScript';
         heading.innerHTML = 'Este h1 fue modificado con JavaScript';
