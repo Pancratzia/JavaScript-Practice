@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1>Manejo de eventos - 3</h1>
+
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" onfocus="cambiar(this)" onblur="regresar(this)" placeholder="Escriba su nombre">
+
+        <br><br>
+
+        <label for="apellido">Apellido: </label>
+        <input type="text" id="apellido" onfocus="cambiar(this)" onblur="regresar(this)" placeholder="Escriba su apellido">
+    </div>
+
+    <br>
+
+    <a href="./">Index</a>
+
+    <script>
+
+        function cambiar(elemento) {
+            elemento.style.backgroundColor = 'yellow';
+        }
+
+        function regresar(elemento) {
+            elemento.style.backgroundColor = 'white';
+        }
+
+
+    </script>
+
+</body>
+
+</html>
