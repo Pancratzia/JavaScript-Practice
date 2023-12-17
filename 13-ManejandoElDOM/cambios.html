@@ -11,8 +11,11 @@
 
     <h1 id="titulo">Ejemplo de Manipulación del DOM</h1>
 
+    <img id="imagen" src="https://picsum.photos/200" alt="Foto de prueba">
+
 
     <button onclick="mostrar()">Mostrar</button>
+    <button onclick="cambiar()">Cambiar Imagen</button>
 
 
     <script>
@@ -21,6 +24,10 @@
         function mostrar() {
             document.getElementById('titulo').innerHTML += '<br>Este título ha sido modificado con JavaScript';
             //document.write('Adiós!');
+        }
+
+        function cambiar() {
+            document.getElementById('imagen').src = 'https://picsum.photos/300';
         }
     </script>
 </body>
