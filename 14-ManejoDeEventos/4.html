@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1>Manejo de eventos - 4</h1>
+
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" placeholder="Escriba su nombre">
+
+        <br><br>
+
+        <label for="apellido">Apellido: </label>
+        <input type="text" id="apellido" placeholder="Escriba su apellido">
+    </div>
+
+    <br>
+
+    <a href="./">Index</a>
+
+    <script>
+
+        const nombre = document.getElementById('nombre');
+        const apellido = document.getElementById('apellido');
+
+        nombre.addEventListener('focus', cambiar);
+        nombre.addEventListener('blur', volver);
+        apellido.addEventListener('focus', cambiar);
+        apellido.addEventListener('blur', volver);
+
+        function cambiar(evento){
+            evento.target.style.backgroundColor = 'yellow';
+        }
+
+        function volver(evento){
+            evento.target.style.backgroundColor = 'white';
+        }
+
+
+    </script>
+
+</body>
+
+</html>
