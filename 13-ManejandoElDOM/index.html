@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <h1 id="heading">Ejemplo de Manipulación del DOM</h1>
+    <h1 id="heading" class="titulo">Ejemplo de Manipulación del DOM</h1>
     <p id="text" class="azul">En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
     <p id="text2" class="azul">Este es otro párrafo para prácticar la manipulación del DOM con Javascript</p>
     <small class="azul">Todos los derechos reservados</small>
@@ -36,6 +36,11 @@
         console.log(`En este documento hay ${azules.length} elementos de clase azul`);
         for (let i = 0; i < azules.length; i++) {
             console.log(`Elemento ${i + 1}: ${azules[i].innerHTML}`);
+        }
+
+        let titulos = document.querySelectorAll(".titulo");
+        for (let i = 0; i < titulos.length; i++) {
+            console.log(`Titulo ${i + 1}: ${titulos[i].innerHTML}`);
         }
 
         text.innerHTML = 'Este párrafo fue modificado con JavaScript';
