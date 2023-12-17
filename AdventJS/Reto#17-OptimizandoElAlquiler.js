@@ -30,7 +30,23 @@ Los números de horas pueden llegar hasta la cifra 9999.
 */
 
 function optimizeIntervals(intervals) {
-  return [];
+  intervals.sort((a, b) => a[0] - b[0]); // Ordenamos los intervalos por hora de inicio
+
+  const result = [intervals[0]]; // Agregamos el primer intervalo
+
+  for (const interval of intervals) {
+    const lastInterval = result[result.length - 1]; // Obtenemos el intervalo anterior. En el primer caso, el intervalo anterior es el primer intervalo (0)
+
+    if (interval[0] <= lastInterval[1]) {
+      // Si la hora de inicio del intervalo actual es menor o igual que la hora de inicio del intervalo anterior
+      lastInterval[1] = Math.max(lastInterval[1], interval[1]);
+    } else {
+      // Si la hora de inicio del intervalo actual es mayor que la hora de inicio del intervalo anterior
+      result.push(interval);
+    }
+  }
+
+  return result;
 }
 
 console.log(
@@ -39,21 +55,20 @@ console.log(
     [2, 7],
     [3, 4],
   ])
-) // [[2, 8]]
+); // [[2, 8]]
 
-console.log(
+/*console.log(
   optimizeIntervals([
     [1, 3],
     [8, 10],
     [2, 6],
   ])
-) // [[1, 6], [8, 10]]
-
+); // [[1, 6], [8, 10]]
 
 console.log(
-  optimizeIntervals([   
+  optimizeIntervals([
     [3, 4],
     [1, 2],
     [5, 6],
   ])
-) // [[1, 2], [3, 4], [5, 6]]
+); // [[1, 2], [3, 4], [5, 6]]*/
