@@ -16,6 +16,7 @@
     
     <h1 id="titulo" class="titulo azul" onmouseover="rojo(this)" onmouseout="azul(this)">Manejo de eventos - 2</h1>
     
+    <h2 onmousedown="rojo(this)" onmouseup="negro(this)" >Eventos de Ratón - Clicks</h2>
     <div>
         <label for="nombre">Nombre: </label>
         <input type="text" name="nombre" placeholder="Escriba su nombre" onchange="convertir(this)">
@@ -37,6 +38,10 @@
 
         function azul(elemento){
             elemento.style.color = 'blue';
+        }
+
+        function negro(elemento){
+            elemento.style.color = 'black';
         }
 
     </script>
