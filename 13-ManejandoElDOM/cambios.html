@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambios en el DOM</title>
 </head>
+
 <body>
-    
-    <h1>Hola</h1>
+
+    <h1 id="titulo">Ejemplo de Manipulación del DOM</h1>
+
+
     <button onclick="mostrar()">Mostrar</button>
 
 
     <script>
-        document.write('Saludos desde el archivo cambios.html'); //Se debe tener cuidado con él pues puede sobrescribir los elementos del DOM
+        //document.write('Saludos desde el archivo cambios.html'); //Se debe tener cuidado con él pues puede sobrescribir los elementos del DOM
 
-        function mostrar(){
-            document.write('Adiós!');
+        function mostrar() {
+            document.getElementById('titulo').innerHTML += '<br>Este título ha sido modificado con JavaScript';
+            //document.write('Adiós!');
         }
     </script>
 </body>
+
 </html>
