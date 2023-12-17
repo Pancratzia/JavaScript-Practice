@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body onload="entrar()">
     
     <h1 id="titulo" class="titulo">Manejo de eventos</h1>
     <p id="parrafo"></p>
 
 
     <script>
-        const titulo = document.getElementById('titulo');
-        titulo.onclick = cambiarTexto;
+        function entrar(){
+            alert('La página se ha cargado');
+            let texto = '';
 
+            if(navigator.cookieEnabled){
+                texto = 'Cookies habilitadas';
+            }else{
+                texto = 'Cookies deshabilitadas';
+            }
 
-        function cambiarTexto(){
-            document.getElementById('parrafo').innerHTML = 'Has presionado el titulo!';
+            document.getElementById('parrafo').innerHTML = texto;
         }
     </script>
 
