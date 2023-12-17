@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica de Manipulación del DOM</title>
+
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
 
     <h1 id="heading">Ejemplo de Manipulación del DOM</h1>
-    <p id="text">En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
-    <p id="text2">Este es otro párrafo para prácticar la manipulación del DOM con Javascript</p>
+    <p id="text" class="azul">En este archivo empezaremos con la práctica de manipulación del DOM con Javascript</p>
+    <p id="text2" class="azul">Este es otro párrafo para prácticar la manipulación del DOM con Javascript</p>
+    <small class="azul">Todos los derechos reservados</small>
 
     <script>
         //el script debe estar después de los elementos que se quieren manipular
@@ -23,6 +30,12 @@
         console.log(`En este documento hay ${parrafos.length} párrafos`);
         for (let i = 0; i < parrafos.length; i++) {
             console.log(`Párrafo ${i + 1}: ${parrafos[i].innerHTML}`);
+        }
+
+        let azules = document.getElementsByClassName("azul");
+        console.log(`En este documento hay ${azules.length} elementos de clase azul`);
+        for (let i = 0; i < azules.length; i++) {
+            console.log(`Elemento ${i + 1}: ${azules[i].innerHTML}`);
         }
 
         text.innerHTML = 'Este párrafo fue modificado con JavaScript';
