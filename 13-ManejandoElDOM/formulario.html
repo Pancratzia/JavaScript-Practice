@@ -25,9 +25,15 @@
         function mostrarValores(){
             let formulario = document.forms['form'];
             let texto = '';
-            for(let elemento of formulario){
+            let nombre = formulario['nombre'];
+
+            let apellido = formulario['apellido'];
+            texto += `nombre: ${nombre.value}<br>
+            apellido: ${apellido.value} `;
+
+            /*for(let elemento of formulario){
                 texto += `${elemento.name}: ${elemento.value} <br>`;
-            }
+            }*/
 
             document.getElementById('valores').innerHTML = texto;
         }
