@@ -12,6 +12,11 @@
 
 
     <script>
+
+        const titulo = document.getElementById('titulo');
+        const parrafo = document.getElementById('parrafo');
+
+        titulo.onclick = cambiarTexto;
         function entrar(){
             alert('La página se ha cargado');
             let texto = '';
@@ -23,6 +28,10 @@
             }
 
             document.getElementById('parrafo').innerHTML = texto;
+        }
+    
+        function cambiarTexto(){
+            titulo.innerHTML = titulo.innerText.toUpperCase();
         }
     </script>
 
