@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
 
     
-    <h1 id="titulo" class="titulo">Manejo de eventos - 2</h1>
+    <h1 id="titulo" class="titulo azul" onmouseover="rojo(this)" onmouseout="azul(this)">Manejo de eventos - 2</h1>
     
     <div>
         <label for="nombre">Nombre: </label>
@@ -23,6 +29,14 @@
 
         function convertir(input){
             input.value = input.value.toUpperCase();
+        }
+
+        function rojo(elemento){
+            elemento.style.color = 'red';
+        }
+
+        function azul(elemento){
+            elemento.style.color = 'blue';
         }
 
     </script>
