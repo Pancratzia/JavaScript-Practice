@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambios en el DOM</title>
+</head>
+<body>
+    
+    <h1>Hola</h1>
+    <button onclick="mostrar()">Mostrar</button>
+
+
+    <script>
+        document.write('Saludos desde el archivo cambios.html'); //Se debe tener cuidado con él pues puede sobrescribir los elementos del DOM
+
+        function mostrar(){
+            document.write('Adiós!');
+        }
+    </script>
+</body>
+</html>
