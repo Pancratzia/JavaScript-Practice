@@ -36,6 +36,14 @@
         apellido.addEventListener('focus', cambiar);
         apellido.addEventListener('blur', volver);
 
+        nombre.addEventListener('change', (e) =>{
+            nombre.value = nombre.value.toUpperCase();
+        });
+
+        apellido.addEventListener('change', (e) =>{
+            apellido.value = apellido.value.toUpperCase();
+        });
+
         function cambiar(evento){
             evento.target.style.backgroundColor = 'yellow';
         }
