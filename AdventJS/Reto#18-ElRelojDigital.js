@@ -26,113 +26,51 @@ Representación de los dígitos para el reloj digital
 */
 
 function drawClock(time) {
-  const result = [[], [], [], [], [], [], []];
+  const clock = [[], [], [], [], [], [], []];
 
-  const SYMBOLS = {
-    0: [
-      ["*", "*", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", "*", "*"],
-    ],
-    1: [
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-    ],
-    2: [
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      ["*", "*", "*"],
-      ["*", " ", " "],
-      ["*", " ", " "],
-      ["*", "*", "*"],
-    ],
-    3: [
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      ["*", "*", "*"],
-    ],
-    4: [
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-    ],
-    5: [
-      ["*", "*", "*"],
-      ["*", " ", " "],
-      ["*", " ", " "],
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      ["*", "*", "*"],
-    ],
-    6: [
-      ["*", "*", "*"],
-      ["*", " ", " "],
-      ["*", " ", " "],
-      ["*", "*", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", "*", "*"],
-    ],
-    7: [
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-    ],
-    8: [
-      ["*", "*", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", "*", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", "*", "*"],
-    ],
-    9: [
-      ["*", "*", "*"],
-      ["*", " ", "*"],
-      ["*", " ", "*"],
-      ["*", "*", "*"],
-      [" ", " ", "*"],
-      [" ", " ", "*"],
-      ["*", "*", "*"],
-    ],
-    ":": [[" "], [" "], ["*"], [" "], ["*"], [" "], [" "]],
+  const full = ["*", "*", "*"];
+  const open = ["*", " ", "*"];
+  const start = ["*", " ", " "];
+  const end = [" ", " ", "*"];
+  const spaces = [" ", " ", " "];
+  const middle = [" ", "*", " "];
+
+  const numbers = {
+    0: [full, open, open, open, open, open, full],
+    1: [end, end, end, end, end, end, end],
+    2: [full, end, end, full, start, start, full],
+    3: [full, end, end, full, end, end, full],
+    4: [open, open, open, full, end, end, end],
+    5: [full, start, start, full, end, end, full],
+    6: [full, start, start, full, open, open, full],
+    7: [full, end, end, end, end, end, end],
+    8: [full, open, open, full, open, open, full],
+    9: [full, open, open, full, end, end, full],
   };
 
-  const TIME = time.split("");
+  const hour1 = numbers[time[0]];
+  const hour2 = numbers[time[1]];
+  const colon = [spaces, spaces, middle, spaces, middle, spaces, spaces];
+  const minute1 = numbers[time[3]];
+  const minute2 = numbers[time[4]];
 
-  for (let i = 0; i < 5; i++) {
-    for (let j = 0; j < 7; j++) {
-      result[j] = [...result[j],
-       ...SYMBOLS[TIME[i]][j],
-      " "];
-      if (i === 4) result[j].pop();
-    }
+  let index = 0;
+
+  for (const item of clock) {
+    item.push(
+      ...hour1[index],
+      " ",
+      ...hour2[index],
+      ...colon[index],
+      ...minute1[index],
+      " ",
+      ...minute2[index]
+    );
+
+    index++;
   }
-  return result;
+
+  return clock;
 }
 
 console.log(drawClock("01:30"));
