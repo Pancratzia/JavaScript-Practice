@@ -63,8 +63,9 @@ html {
     background-color: #3f51b5;
     color: #fff;
     font-size: 30px;
-    padding-bottom: 6px;
+    padding: 6px;
     border-width: 0;
+    margin: 5px 0;
   }
   
   input[type="text"] {
