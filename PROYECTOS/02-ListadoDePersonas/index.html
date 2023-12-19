@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Personas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    
-    <script src="main.js"></script>
+
+<body onload="mostrarPersonas()">
+
+    <div class="contenedor" id="cabecero">
+        <h1>Listado de Personas</h1>
+    </div>
+
+    <div class="contenedor">
+        <div class="elemento">
+            <ul id="personas"></ul>
+        </div>
+    </div>
+
+    <script src="./Persona.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>
