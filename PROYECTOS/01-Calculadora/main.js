@@ -20,6 +20,24 @@ function obtenerOperandos() {
 
 function sumar() {
   if(!obtenerOperandos()) return;
-  divResultado.innerHTML = `${numberA} + ${numberB} = ${numberA + numberB}`;
+  divResultado.innerHTML = `${numberA} + ${numberB} = ${(numberA + numberB).toFixed(2)}`;
+  form.reset();
+}
+
+function restar() {
+  if(!obtenerOperandos()) return;
+  divResultado.innerHTML = `${numberA} - ${numberB} = ${(numberA - numberB).toFixed(2)}`;
+  form.reset();
+}
+
+function multiplicar() {
+  if(!obtenerOperandos()) return;
+  divResultado.innerHTML = `${numberA} x ${numberB} = ${(numberA * numberB).toFixed(2)}`;
+  form.reset();
+}
+
+function dividir() {
+  if(!obtenerOperandos()) return;
+  divResultado.innerHTML = `${numberA} / ${numberB} = ${(numberA / numberB).toFixed(2)}`;
   form.reset();
 }
