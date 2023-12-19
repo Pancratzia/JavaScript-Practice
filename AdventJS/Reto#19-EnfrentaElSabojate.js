@@ -35,6 +35,47 @@ Los números son cadenas de texto.
 
 */
 
-function revealSabotage(store) {
-  return [];
+export function revealSabotage(store) {
+  const directions = [
+    [-1, -1],
+    [-1, 0],
+    [-1, 1],
+    [0, -1],
+    [0, 1],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+  ];
+
+  for (let i = 0; i < store.length; i++) {
+    for (let j = 0; j < store[i].length; j++) {
+      if (store[i][j] === "*") continue;
+
+      let count = 0;
+
+      for (const [dx, dy] of directions) {
+        const ni = i + dx;
+        const nj = j + dy;
+
+        if (store[ni] && store[ni][nj] === "*") {
+          count++;
+        }
+      }
+
+      if (count !== 0) {
+        store[i][j] = count.toString();
+      }
+    }
+  }
+
+  return store;
 }
+
+const store = [
+  ["*", " ", " ", " "],
+  [" ", " ", "*", " "],
+  [" ", " ", " ", " "],
+  ["*", " ", " ", " "],
+];
+
+console.log(revealSabotage(store));
