@@ -14,15 +14,24 @@
 
     <div class="container">
         <h1>Calculadora</h1>
+        <form id="form">
+            <div class="mb-3">
+                <label class="form-label" for="numberA">Primer Número</label>
+                <input type="number" class="form-control" id="numberA" placeholder="Escribe el primer número...">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="numberB">Segundo Número</label>
+                <input type="number" class="form-control" id="numberB" placeholder="Escribe el segundo número...">
+            </div>
+        </form>
+        <button class="btn btn-primary mb-3" onclick="sumar()">Sumar</button>
     </div>
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <script src="main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
