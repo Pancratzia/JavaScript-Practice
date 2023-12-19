@@ -35,39 +35,27 @@ Los números son cadenas de texto.
 
 */
 
-export function revealSabotage(store) {
-  const directions = [
-    [-1, -1],
-    [-1, 0],
-    [-1, 1],
-    [0, -1],
-    [0, 1],
-    [1, -1],
-    [1, 0],
-    [1, 1],
-  ];
-
-  for (let i = 0; i < store.length; i++) {
-    for (let j = 0; j < store[i].length; j++) {
-      if (store[i][j] === "*") continue;
-
-      let count = 0;
-
-      for (const [dx, dy] of directions) {
-        const ni = i + dx;
-        const nj = j + dy;
-
-        if (store[ni] && store[ni][nj] === "*") {
-          count++;
-        }
-      }
-
-      if (count !== 0) {
-        store[i][j] = count.toString();
+function revealSabotage(store) {
+  let prevRow;
+  let nextRow;
+  for (const [i, row] of store.entries()) {
+    nextRow = store[i + 1];
+    for (const [b, cell] of row.entries()) {
+      if (cell != "*") {
+        const calc =
+          +(prevRow?.[b - 1] == "*") +
+          +(prevRow?.[b] == "*") +
+          +(prevRow?.[b + 1] == "*") +
+          +(row?.[b - 1] == "*") +
+          +(row?.[b + 1] == "*") +
+          +(nextRow?.[b - 1] == "*") +
+          +(nextRow?.[b] == "*") +
+          +(nextRow?.[b + 1] == "*");
+        row[b] = calc > 0 ? calc.toString() : " ";
       }
     }
+    prevRow = row;
   }
-
   return store;
 }
 
