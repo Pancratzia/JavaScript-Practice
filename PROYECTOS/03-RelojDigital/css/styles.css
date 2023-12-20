@@ -8,14 +8,18 @@
 .reloj-contenedor{
     background-color: rgb(12, 119, 206);
     padding: 25px;
-    max-width: 350px;
+    width: min(80%, 600px);
     text-align: center;
     border-radius: 5px;
     margin: 0 auto;
     margin-top: 10%;
 }
 
+.hora{
+    margin-bottom: 15px;
+}
+
 .fecha{
-    letter-spacing: 10px;
+    letter-spacing: 5px;
     font-size: 15px;
 }
