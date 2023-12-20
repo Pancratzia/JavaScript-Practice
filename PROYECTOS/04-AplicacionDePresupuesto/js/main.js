@@ -1,12 +1,13 @@
 const ingresos = [
-  new Ingreso("Salario", 2100.0),
-  new Ingreso("Venta de un auto", 15000.0),
+  new Ingreso("Salario", 2100),
+  new Ingreso("Venta de un auto", 15000),
 ];
 
 const egresos = [
-  new Egreso("Alquiler", 900.0),
-  new Egreso("Comida", 300.0),
-  new Egreso("Deudas", 1720.0),
+  new Egreso("Alquiler", 900),
+  new Egreso("Comida", 300),
+  new Egreso("Deudas", 1720),
+  new Egreso("Moto Nueva", 5000),
 ];
 
 let ingresosTotales = 0;
@@ -75,7 +76,7 @@ const crearIngresoHTML = (ingreso) => {
                       ingreso.valor
                     )}</div>
                     <div class="elemento_eliminar">
-                        <button class='elemento_eliminar--btn'>
+                        <button onclick='eliminarIngreso(${ingreso.id})' class='elemento_eliminar--btn'>
                             <ion-icon name="close-circle-outline"></ion-icon>
                         </button>
                     </div>
@@ -106,7 +107,7 @@ const crearEgresoHTML = (egreso) => {
                     )}</div>
                     <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/egresosTotales)}</div>
                     <div class="elemento_eliminar">
-                        <button class='elemento_eliminar--btn'>
+                        <button onclick='eliminarEgreso(${egreso.id})' class='elemento_eliminar--btn'>
                             <ion-icon name="close-circle-outline"></ion-icon>
                         </button>
                     </div>
@@ -117,3 +118,24 @@ const crearEgresoHTML = (egreso) => {
 
   return egresoHTML;
 };
+
+const eliminarIngreso = (id) => {
+  const ingreso = ingresos.findIndex((ingreso) => {
+    return ingreso.id === id;
+  });
+
+  ingresos.splice(ingreso, 1);
+  cargarCabecero();
+  cargarIngresos();
+}
+
+const eliminarEgreso = (id) => {
+  const egreso = egresos.findIndex((egreso) => {
+    return egreso.id === id;
+  });
+
+  egresos.splice(egreso, 1);
+  cargarCabecero();
+  cargarEgresos();
+}
+
