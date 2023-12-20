@@ -9,6 +9,9 @@ const egresos = [
   new Egreso("Deudas", 1720.0),
 ];
 
+let ingresosTotales = 0;
+let egresosTotales = 0;
+
 const cargarApp = () => {
   cargarCabecero();
   cargarIngresos();
@@ -25,8 +28,8 @@ const totalizar = (array) => {
 };
 
 const cargarCabecero = () => {
-  const ingresosTotales = totalizar(ingresos);
-  const egresosTotales = totalizar(egresos);
+  ingresosTotales = totalizar(ingresos);
+  egresosTotales = totalizar(egresos);
 
   const presupuesto = ingresosTotales - egresosTotales;
   const porcentajeEgreso = egresosTotales / ingresosTotales;
@@ -101,7 +104,7 @@ const crearEgresoHTML = (egreso) => {
                     <div class="elemento_valor">- ${formatoMoneda(
                       egreso.valor
                     )}</div>
-                    <div class="elemento_porcentaje">30%</div>
+                    <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/egresosTotales)}</div>
                     <div class="elemento_eliminar">
                         <button class='elemento_eliminar--btn'>
                             <ion-icon name="close-circle-outline"></ion-icon>
