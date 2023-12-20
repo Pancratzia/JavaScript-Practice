@@ -89,11 +89,10 @@ function distributeGifts(weights) {
   return avgWeights;
 }
 
-
 const input = [
   [4, 5, 1],
   [6, null, 3],
-  [8, null, 4]
-]
+  [8, null, 4],
+];
 
-distributeGifts(input)
+distributeGifts(input);
