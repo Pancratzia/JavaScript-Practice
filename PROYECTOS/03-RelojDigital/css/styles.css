@@ -13,6 +13,8 @@
     border-radius: 5px;
     margin: 0 auto;
     margin-top: 10%;
+    border: 10px solid transparent;
+    transition: all .5s ease-in-out;
 }
 
 .hora{
@@ -22,4 +24,9 @@
 .fecha{
     letter-spacing: 5px;
     font-size: 15px;
+}
+
+.animar{
+    transition: all .5 ease-in-out;
+    border: 10px solid rgba(0, 0, 0, .3);
 }

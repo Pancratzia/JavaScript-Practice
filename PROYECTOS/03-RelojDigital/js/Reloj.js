@@ -39,6 +39,8 @@ const mostratReloj = () => {
   const fechaTexto = `${diaSemana}, ${dia} de ${mes} de ${years}`;
 
   document.getElementById("fecha").innerHTML = fechaTexto;
+
+  document.getElementById("contenedor").classList.toggle("animar");
 };
 
 const formatoHora = (hora) => {
