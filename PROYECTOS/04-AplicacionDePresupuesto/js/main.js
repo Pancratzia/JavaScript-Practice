@@ -139,3 +139,29 @@ const eliminarEgreso = (id) => {
   cargarEgresos();
 }
 
+const agregarDato = () => {
+    const forma = document.getElementById('forma');
+    const tipo = forma['tipo'];
+    const descripcion = forma['descripcion'];
+    const valor = forma['valor'];
+
+    if(descripcion.value !== '' && valor.value !== '') {
+        if(!isNaN(parseFloat(valor.value))){
+          
+          if(tipo.value === 'ingreso'){
+            ingresos.push(new Ingreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarIngresos();
+          }else if(tipo.value === 'egreso'){
+            egresos.push(new Egreso(descripcion.value, +valor.value));
+            cargarCabecero();
+            cargarEgresos();
+          }
+          
+        }else{
+          alert('El valor debe ser un número');
+        }
+    }else{
+      alert('Debes completar todos los campos');
+    }
+}
