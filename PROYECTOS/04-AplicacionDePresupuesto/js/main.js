@@ -1,13 +1,9 @@
 const ingresos = [
-  new Ingreso("Salario", 2100),
-  new Ingreso("Venta de un auto", 15000),
+  new Ingreso("Salario", 3000),
 ];
 
 const egresos = [
-  new Egreso("Alquiler", 900),
-  new Egreso("Comida", 300),
-  new Egreso("Deudas", 1720),
-  new Egreso("Moto Nueva", 5000),
+  new Egreso("Alquiler", 500),
 ];
 
 let ingresosTotales = 0;
