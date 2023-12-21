@@ -1,0 +1,21 @@
+{
+  "name": "05-modulos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "modulos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3"
+  }
+}
