@@ -67,7 +67,7 @@ function compile(code) {
             returnPointUsed = false;
             break;
           case "<":
-            if(!returnPointUsed && returnPoint !== -1) {
+            if (!returnPointUsed && returnPoint !== -1) {
               i = returnPoint;
               returnPointUsed = true;
             }
