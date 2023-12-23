@@ -35,5 +35,53 @@ compile('--¿+++?') // -2
 */
 
 function compile(code) {
-  return 0;
+  let counter = 0;
+  let returnPoint = -1;
+  let returnPointUsed = false;
+  let canEvaluate = true;
+
+  for (let i = 0; i < code.length; i++) {
+    const symbol = code[i];
+
+    if (symbol === "?") {
+      canEvaluate = true;
+    } else {
+      if (canEvaluate) {
+        switch (symbol) {
+          case "+":
+            counter++;
+            break;
+          case "*":
+            counter *= 2;
+            break;
+          case "-":
+            counter--;
+            break;
+          case "¿":
+            if (counter <= 0) {
+              canEvaluate = false;
+            }
+            break;
+          case "%":
+            returnPoint = i;
+            returnPointUsed = false;
+            break;
+          case "<":
+            if(!returnPointUsed && returnPoint !== -1) {
+              i = returnPoint;
+              returnPointUsed = true;
+            }
+            break;
+        }
+      }
+    }
+  }
+
+  return counter;
 }
+
+console.log(compile("++*-"));
+console.log(compile("++%++<"));
+console.log(compile("++<--"));
+console.log(compile("++¿+?"));
+console.log(compile("--¿+++?"));
