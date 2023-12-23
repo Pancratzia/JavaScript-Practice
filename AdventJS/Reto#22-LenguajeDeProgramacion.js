@@ -35,7 +35,7 @@ compile('--¿+++?') // -2
 */
 
 function compile(code) {
-  let counter = 0;
+  let result = 0;
   let returnPoint = -1;
   let returnPointUsed = false;
   let canEvaluate = true;
@@ -49,16 +49,16 @@ function compile(code) {
       if (canEvaluate) {
         switch (symbol) {
           case "+":
-            counter++;
+            result++;
             break;
           case "*":
-            counter *= 2;
+            result *= 2;
             break;
           case "-":
-            counter--;
+            result--;
             break;
           case "¿":
-            if (counter <= 0) {
+            if (result <= 0) {
               canEvaluate = false;
             }
             break;
@@ -77,7 +77,7 @@ function compile(code) {
     }
   }
 
-  return counter;
+  return result;
 }
 
 console.log(compile("++*-"));
