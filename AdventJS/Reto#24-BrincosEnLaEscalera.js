@@ -33,5 +33,19 @@ getStaircasePaths(5, 2)
 */
 
 function getStaircasePaths(steps, maxJump) {
-  return [];
+  const results = [];
+
+  function jump(curr, stepsLeft) {
+    if (stepsLeft === 0) {
+      results.push([...curr]);
+      return;
+    }
+
+    for (let i = 1; i <= Math.min(stepsLeft, maxJump); i++) {
+      jump([...curr, i], stepsLeft - i);
+    }
+  }
+
+  jump([], steps);
+  return results;
 }
