@@ -37,17 +37,19 @@ Los números de los niños nunca se repiten.
 */
 
 function travelDistance(map) {
-  const pos = {};
-  let distance = 0;
-  for (const [x, line] of map.split("\n").entries()) {
-    for (let i of ["S", 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-      line.includes(i) ? (pos[i] = [x, line.indexOf(i)]) : null;
-    }
+  let len = map.indexOf("\n") + 1;
+  len ||= map.length;
+  const chars = [...map.matchAll("[1-9S]")];
+  chars.sort();
+  let moves = 0;
+  let i = (chars.at(-1).index / len) | 0;
+  let j = chars.at(-1).index % len;
+  for (const c of chars.slice(0, chars.length - 1)) {
+    let mi = (c.index / len) | 0;
+    let mj = c.index % len;
+    moves += Math.abs(mi - i) + Math.abs(mj - j);
+    i = mi;
+    j = mj;
   }
-  pos[0] = pos["S"];
-  for (let i = 0; i < Object.keys(pos).length - 2; i++) {
-    distance +=
-      Math.abs(pos[i][0] - pos[i + 1][0]) + Math.abs(pos[i][1] - pos[i + 1][1]);
-  }
-  return distance;
+  return moves;
 }
