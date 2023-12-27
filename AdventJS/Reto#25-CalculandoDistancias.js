@@ -36,20 +36,46 @@ Los números de los niños nunca se repiten.
 
 */
 
+/**
+ * Calculates the total distance traveled on a map.
+ *
+ * @param {string} map - The map representing the path.
+ * @returns {number} - The total distance traveled.
+ */
 function travelDistance(map) {
+  // Find the length of each row
   let len = map.indexOf("\n") + 1;
+
+  // If there is no newline character, set the length as the total length of the map
   len ||= map.length;
-  const chars = [...map.matchAll("[1-9S]")];
+
+  // Find all the characters in the map that are either a number or the letter 'S'
+  const chars = [...map.matchAll(/[1-9S]/g)];
+
+  // Sort the characters in ascending order
   chars.sort();
+
+  // Initialize the total number of moves to 0
   let moves = 0;
+
+  // Get the starting position of the last character
   let i = (chars.at(-1).index / len) | 0;
   let j = chars.at(-1).index % len;
+
+  // Iterate through each character, except the last one
   for (const c of chars.slice(0, chars.length - 1)) {
+    // Get the current position of the character
     let mi = (c.index / len) | 0;
     let mj = c.index % len;
+
+    // Calculate the distance traveled between the current position and the previous position
     moves += Math.abs(mi - i) + Math.abs(mj - j);
+
+    // Update the previous position to the current position
     i = mi;
     j = mj;
   }
+
+  // Return the total number of moves
   return moves;
 }
