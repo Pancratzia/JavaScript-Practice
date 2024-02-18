@@ -44,7 +44,7 @@
       </div>
 
       <footer>
-        <button class="is-refresh" aria-label="refresh"></button>
+        <button class="is-undo" aria-label="undo"></button>
         <button class="is-big is-remove" aria-label="remove"></button>
         <button class="is-star" aria-label="star"></button>
         <button class="is-big is-fav" aria-label="fav"></button>
@@ -136,6 +136,24 @@
         height: 48px;
         width: 48px;
       }
+
+      &.is-undo {
+        background-position: -140px;
+      }
+
+      &.is-remove {
+        background-position: -155px;
+      }
+
+      &.is-fav{
+        background-position: -50px;
+      }
+
+      &.is-star{
+        background-position: -70px;
+      }
+
+
     }
   }
 
@@ -185,3 +203,21 @@
     }
   }
 </style>
+
+<script>
+  let isAnimating = false;
+  let pullDeltaX = 0; //Distancia que la card se está arrastrando
+
+  function startDrag(event){
+    if(isAnimating) return;
+
+    //get the first card element
+    const actualCard = event.target.closest('article');
+
+    //get initial position of mouse or finger
+    console.log(event)
+  }
+
+  document.addEventListener('mousedown', startDrag);
+  document.addEventListener('touchstart', startDrag, {passive: true});
+</script>
