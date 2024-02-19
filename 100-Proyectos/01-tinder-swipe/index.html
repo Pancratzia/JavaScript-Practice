@@ -176,11 +176,11 @@
       z-index: 2;
 
       &.go-left{
-        transform: translateX(-100%) rotate(10deg) !important;
+        transform: translateX(-150%) rotate(30deg) !important;
       }
 
       &.go-right{
-        transform: translateX(100%) rotate(-10deg) !important;
+        transform: translateX(150%) rotate(-30deg) !important;
       }
 
       &.go-left, &.go-right{
@@ -222,7 +222,7 @@
 </style>
 
 <script>
-  const DECITION_THRESHOLD = 75;
+  const DECITION_THRESHOLD = 125;
   let isAnimating = false;
   let pullDeltaX = 0; //Distancia que la card se está arrastrando
 
@@ -274,9 +274,19 @@
       const decisionMade = Math.abs(pullDeltaX) >= DECITION_THRESHOLD;
 
       if (decisionMade) {
-        console.log('decision made');
+        const goRight = pullDeltaX >= 0;
+        const goLeft = !goRight;
+
+        //add class acording to the decision
+        actualCard.classList.add(goRight ? 'go-right' : 'go-left');
+
+        actualCard.addEventListener('transitionend', () => {
+          actualCard.remove();
+          isAnimating = false;
+        }, { once: true });
+
       }else{
-        console.log('decision not made');
+        actualCard.classList.add('reset');
       }
     }
   }
