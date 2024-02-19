@@ -39,6 +39,9 @@
           <div class="choice like">LIKE</div>
         </article>
 
+        <span>No more matches... <br>
+        Try again later!</span>
+
 
 
       </div>
@@ -162,6 +165,16 @@
     width: 100%;
     height: 100%;
     margin: 0 auto;
+
+    & > span{
+      display: grid;
+      place-items: center;
+      color: #777;
+      font-size: 14px;
+      text-align: center;
+      height: 100%;
+      z-index: -1;
+    }
 
     & article {
       position: absolute;
