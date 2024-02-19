@@ -287,7 +287,17 @@
 
       }else{
         actualCard.classList.add('reset');
+        actualCard.classList.remove('go-right', 'go-left');
       }
+
+      //reset the variables
+      actualCard.addEventListener('transitionend', () => {
+        actualCard.removeAttribute('style');
+        actualCard.classList.remove('reset');
+        pullDeltaX = 0;
+        isAnimating = false;
+      }, { once: true });
+
     }
   }
 
