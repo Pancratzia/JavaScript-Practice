@@ -276,6 +276,7 @@
 
     //get the first card element
     const actualCard = event.target.closest('article');
+    if (!actualCard) return;
 
     //get initial position of mouse or finger
     const startX = event.pageX ?? event.touches[0].pageX;
