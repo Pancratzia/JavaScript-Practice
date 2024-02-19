@@ -175,6 +175,23 @@
       height: 100%;
       z-index: 2;
 
+      &.go-left{
+        transform: translateX(-100%) rotate(10deg) !important;
+      }
+
+      &.go-right{
+        transform: translateX(100%) rotate(-10deg) !important;
+      }
+
+      &.go-left, &.go-right{
+        transition: transform .3s ease, rotate .3s ease;
+      }
+
+      &.reset{
+        transition: transform .3s ease;
+        transform : translateX(0)  !important;
+      }
+
       & img {
         width: 100%;
         height: 100%;
@@ -205,6 +222,7 @@
 </style>
 
 <script>
+  const DECITION_THRESHOLD = 75;
   let isAnimating = false;
   let pullDeltaX = 0; //Distancia que la card se está arrastrando
 
@@ -237,14 +255,30 @@
 
       isAnimating = true;
       //calculate the rotation of the card using the distance
-      const deg = pullDeltaX / 10;
+      const deg = pullDeltaX / 14;
       //apply the transformation to the card
       actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`;
       //change the cursos to grabbing
       actualCard.style.cursor = 'grabbing';
     }
 
-    function onEnd(event) { }
+    function onEnd(event) {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onEnd);
+
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onEnd);
+
+      //know if the user has made a decision
+
+      const decisionMade = Math.abs(pullDeltaX) >= DECITION_THRESHOLD;
+
+      if (decisionMade) {
+        console.log('decision made');
+      }else{
+        console.log('decision not made');
+      }
+    }
   }
 
 
