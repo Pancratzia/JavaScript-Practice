@@ -31,8 +31,31 @@
         canvas.width = 448;
         canvas.height = 400;
 
+
+        function drawBall(){}
+
+        function drawPaddle(){}
+
+        function drawBricks(){}
+
+        function collisionDetection(){}
+
+        function ballMovement(){}
+
+        function paddleMovement(){}
+
         function draw(){
             
+            //Dibujar los elementos
+            drawBall();
+            drawPaddle();
+            drawBricks();
+
+            //Colisiones y movimientos
+            collisionDetection();
+            ballMovement();
+            paddleMovement();
+
 
             //Esto ayuda a que la animacion se vea mas fluida. Con cada frame se dibuja un nuevo frame del canvas
             window.requestAnimationFrame(draw);
