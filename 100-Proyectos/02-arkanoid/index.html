@@ -66,6 +66,25 @@
         const bricksColumnCount = 13;
         const brickWidth = 30;
         const brickHeight = 14;
+        const brickPadding = 2;
+        const brickOffsetTop = 80;
+        const brickOffsetLeft = 16;
+        const bricks = [];
+
+        const BRICK_STATUS = { ACTIVE: 0, DESTROYED: 1 };
+
+        for (let c = 0; c < bricksColumnCount; c++) {
+            bricks[c] = [];
+            for (let r = 0; r < bricksRowCount; r++) {
+
+                //Calculamos la posicion del ladrillo en la pantalla
+                const brickC = c * (brickWidth + brickPadding) + brickOffsetLeft;
+                const brickR = r * (brickHeight + brickPadding) + brickOffsetTop;
+                //Asigna un color aleatorio a cada ladrillo
+                const random = Math.floor(Math.random() * 8);
+                bricks[c][r] = { x: brickC, y: brickR, status: BRICK_STATUS.ACTIVE, color: random };
+            }
+        }
 
         function drawBall() {
             ctx.beginPath();
@@ -81,7 +100,24 @@
 
             ctx.drawImage($sprite, 29, 174, paddleWidth, paddleHeight, paddleX, paddleY, paddleWidth, paddleHeight);
         }
-        function drawBricks() { }
+        function drawBricks() {
+            for (let c = 0; c < bricksColumnCount; c++) {
+                for (let r = 0; r < bricksRowCount; r++) {
+                    const currentBrick = bricks[c][r];
+                    if (currentBrick.status === BRICK_STATUS.DESTROYED) {
+                        continue;
+                    }
+
+                    ctx.fillStyle = 'yellow';
+
+                    ctx.rect(currentBrick.x, currentBrick.y, brickWidth, brickHeight);
+
+                    ctx.strokeStyle = '#008';
+                    ctx.stroke();
+                    ctx.fill();
+                }
+            }
+        }
 
         function collisionDetection() { }
         function ballMovement() {
