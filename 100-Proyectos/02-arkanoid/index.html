@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arkanoid</title>
 
     <style>
-        body{
+        body {
             background-color: #111;
         }
 
-        canvas{
+        canvas {
             border: 4px solid #fff;
             border-bottom: transparent;
             background: #000;
@@ -19,6 +20,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <canvas></canvas>
@@ -50,38 +52,41 @@
         let paddleX = (canvas.width - paddleWidth) / 2;
         let paddleY = canvas.height - paddleHeight - 10;
 
-        function drawBall(){
+        let rightPressed = false;
+        let leftPressed = false;
+
+        function drawBall() {
             ctx.beginPath();
-            ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
             ctx.fillStyle = '#fff';
             ctx.fill();
             ctx.closePath();
         }
-        function drawPaddle(){
+        function drawPaddle() {
             ctx.fillStyle = 'red';
             ctx.fillRect(paddleX, paddleY, paddleWidth, paddleHeight);
         }
-        function drawBricks(){}
+        function drawBricks() { }
 
-        function collisionDetection(){}
-        function ballMovement(){
+        function collisionDetection() { }
+        function ballMovement() {
 
             //Rebotar las pelotas en los laterales
-            if(
+            if (
                 x + dx > canvas.width - ballRadius //Pared Derecha
                 || x + dx < ballRadius) //Pared Izquierda
-                {
+            {
                 dx = -dx;
             }
 
             //Rebotar en la parte de arriba
-            if(y + dy < ballRadius){
+            if (y + dy < ballRadius) {
                 dy = -dy;
             }
 
             //GameOver en la parte de abajo y reiniciar
 
-            if(y + dy > canvas.height - ballRadius){
+            if (y + dy > canvas.height - ballRadius) {
                 console.log('GAME OVER');
                 document.location.reload();
             }
@@ -89,14 +94,42 @@
             x += dx;
             y += dy;
         }
-        function paddleMovement(){}
+        function paddleMovement() {
+            if(rightPressed){
+                paddleX += 7;
+            }
+            else if(leftPressed){
+               paddleX -= 7; 
+            }
+        }
 
-        function cleanCanvas(){
+        function cleanCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
 
-        function draw(){
-            
+        function initEvents() {
+            document.addEventListener('keydown', keyDownHandler);
+            document.addEventListener('keyup', keyUpHandler);
+        }
+
+        function keyDownHandler(e) {
+            if (e.key === 'Right' || e.key === 'ArrowRight') {
+                rightPressed = true;
+            } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+                leftPressed = true;
+            }
+        }
+
+        function keyUpHandler(e) {
+            if (e.key === 'Right' || e.key === 'ArrowRight') {
+                rightPressed = false;
+            } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+                leftPressed = false;
+            }
+        }
+
+        function draw() {
+
             cleanCanvas();
 
             //Dibujar los elementos
@@ -115,7 +148,9 @@
         }
 
         draw();
+        initEvents();
     </script>
-    
+
 </body>
+
 </html>
