@@ -14,7 +14,7 @@
         canvas {
             border: 4px solid #fff;
             border-bottom: transparent;
-            background: #000;
+            background: url('./bkg.png') repeat;
             margin: 0 auto;
             display: block;
         }
@@ -24,9 +24,15 @@
 <body>
 
     <canvas></canvas>
+    <img hidden id="sprite" src="./sprite.png" alt="Sprite de Arkanoid">
+    <img hidden id="bricks" src="./bricks.png" alt="Sprite de los bricks de Arkanoid">
 
     <script>
         const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d'); //Con el contexto 2D se dibuja encima del canvas
+
+        const $sprite = document.getElementById('sprite');
+        const $bricks = document.getElementById('bricks');
 
         canvas.width = 448;
         canvas.height = 400;
@@ -41,8 +47,6 @@
         //Velocidad de la pelota
         let dx = 3;
         let dy = -3;
-
-        const ctx = canvas.getContext('2d'); //Con el contexto 2D se dibuja encima del canvas
 
         /*VARIABLES DE LA PALETA*/
 
