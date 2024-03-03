@@ -55,6 +55,8 @@
         let rightPressed = false;
         let leftPressed = false;
 
+        const PADDLE_SENSITIVITY = 8;
+
         function drawBall() {
             ctx.beginPath();
             ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -95,11 +97,11 @@
             y += dy;
         }
         function paddleMovement() {
-            if(rightPressed){
-                paddleX += 7;
+            if(rightPressed && paddleX < canvas.width - paddleWidth){
+                paddleX += PADDLE_SENSITIVITY;
             }
-            else if(leftPressed){
-               paddleX -= 7; 
+            else if(leftPressed && paddleX > 0){
+               paddleX -= PADDLE_SENSITIVITY; 
             }
         }
 
