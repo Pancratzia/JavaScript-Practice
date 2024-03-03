@@ -64,9 +64,9 @@
         //Variables de los ladrillos
         const bricksRowCount = 5;
         const bricksColumnCount = 13;
-        const brickWidth = 30;
-        const brickHeight = 14;
-        const brickPadding = 2;
+        const brickWidth = 32;
+        const brickHeight = 16;
+        const brickPadding = 0;
         const brickOffsetTop = 80;
         const brickOffsetLeft = 16;
         const bricks = [];
@@ -112,8 +112,8 @@
                         $bricks,
                         clipX,
                         0,
-                        31,
-                        14,
+                        brickWidth,
+                        brickHeight,
                         currentBrick.x,
                         currentBrick.y,
                         brickWidth,
