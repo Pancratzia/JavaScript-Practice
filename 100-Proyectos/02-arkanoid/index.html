@@ -22,6 +22,24 @@
 <body>
 
     <canvas></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas');
+
+        const ctx = canvas.getContext('2d'); //Con el contexto 2D se dibuja encima del canvas
+
+        canvas.width = 448;
+        canvas.height = 400;
+
+        function draw(){
+            
+
+            //Esto ayuda a que la animacion se vea mas fluida. Con cada frame se dibuja un nuevo frame del canvas
+            window.requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
     
 </body>
 </html>
