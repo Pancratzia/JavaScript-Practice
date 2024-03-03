@@ -54,6 +54,27 @@
 
         function collisionDetection(){}
         function ballMovement(){
+
+            //Rebotar las pelotas en los laterales
+            if(
+                x + dx > canvas.width - ballRadius //Pared Derecha
+                || x + dx < ballRadius) //Pared Izquierda
+                {
+                dx = -dx;
+            }
+
+            //Rebotar en la parte de arriba
+            if(y + dy < ballRadius){
+                dy = -dy;
+            }
+
+            //GameOver en la parte de abajo y reiniciar
+
+            if(y + dy > canvas.height - ballRadius){
+                console.log('GAME OVER');
+                document.location.reload();
+            }
+
             x += dx;
             y += dy;
         }
