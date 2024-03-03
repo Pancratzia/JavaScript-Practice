@@ -69,8 +69,11 @@
             ctx.closePath();
         }
         function drawPaddle() {
-            ctx.fillStyle = 'red';
+            
+            ctx.fillStyle = 'transparent';
             ctx.fillRect(paddleX, paddleY, paddleWidth, paddleHeight);
+
+            ctx.drawImage($sprite, 29, 174, paddleWidth, paddleHeight, paddleX, paddleY, paddleWidth, paddleHeight);
         }
         function drawBricks() { }
 
