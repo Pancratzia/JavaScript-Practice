@@ -41,7 +41,7 @@
 
         //Posicion de la pelota
         const ballRadius = 3;
-        let x = canvas.width / 2;
+        let x = Math.floor(Math.random() * (canvas.width - ballRadius * 2) + ballRadius);
         let y = canvas.height - 30;
 
         //Velocidad de la pelota
@@ -123,7 +123,28 @@
             }
         }
 
-        function collisionDetection() { }
+        function collisionDetection() { 
+            for (let c = 0; c < bricksColumnCount; c++) {
+                for (let r = 0; r < bricksRowCount; r++) {
+                    const currentBrick = bricks[c][r];
+
+                    if (currentBrick.status === BRICK_STATUS.DESTROYED) {
+                        continue;
+                    }
+
+                    const isBallSameXAsBrick = x > currentBrick.x && x < currentBrick.x + brickWidth;
+
+                    const isBallSameYAsBrick = y > currentBrick.y && y < currentBrick.y + brickHeight;
+
+                    if (isBallSameXAsBrick && isBallSameYAsBrick) {
+                        dy = -dy;
+                        currentBrick.status = BRICK_STATUS.DESTROYED;
+                    }
+
+
+                }
+            }
+        }
         function ballMovement() {
 
             //Rebotar las pelotas en los laterales
