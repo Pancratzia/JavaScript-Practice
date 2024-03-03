@@ -107,14 +107,18 @@
                     if (currentBrick.status === BRICK_STATUS.DESTROYED) {
                         continue;
                     }
-
-                    ctx.fillStyle = 'yellow';
-
-                    ctx.rect(currentBrick.x, currentBrick.y, brickWidth, brickHeight);
-
-                    ctx.strokeStyle = '#008';
-                    ctx.stroke();
-                    ctx.fill();
+                    const clipX = currentBrick.color * 32;
+                    ctx.drawImage(
+                        $bricks,
+                        clipX,
+                        0,
+                        31,
+                        14,
+                        currentBrick.x,
+                        currentBrick.y,
+                        brickWidth,
+                        brickHeight
+                    );
                 }
             }
         }
