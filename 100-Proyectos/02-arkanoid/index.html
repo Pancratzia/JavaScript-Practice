@@ -26,22 +26,34 @@
     <script>
         const canvas = document.querySelector('canvas');
 
-        const ctx = canvas.getContext('2d'); //Con el contexto 2D se dibuja encima del canvas
-
         canvas.width = 448;
         canvas.height = 400;
 
+        /*VARIABLES DE LA PELOTA*/
 
-        function drawBall(){}
+        //Posicion de la pelota
+        const ballRadius = 3;
+        let x = canvas.width / 2;
+        let y = canvas.height - 30;
 
+        //Velocidad de la pelota
+        let dx = 2;
+        let dy = -2;
+
+        const ctx = canvas.getContext('2d'); //Con el contexto 2D se dibuja encima del canvas
+
+        function drawBall(){
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+            ctx.fillStyle = '#fff';
+            ctx.fill();
+            ctx.closePath();
+        }
         function drawPaddle(){}
-
         function drawBricks(){}
 
         function collisionDetection(){}
-
         function ballMovement(){}
-
         function paddleMovement(){}
 
         function draw(){
