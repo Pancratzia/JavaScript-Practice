@@ -9,6 +9,12 @@
     <style>
         body {
             background-color: #111;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         canvas {
@@ -163,7 +169,7 @@
             //GameOver en la parte de abajo y reiniciar
 
             const isBallSameXApPaddle = x > paddleX && x < paddleX + paddleWidth;
-            const isBallTouchingPaddle = y + dy > paddleY;
+            const isBallTouchingPaddle = y + dy < paddleY && y + dy > paddleY - ballRadius;
 
             if( isBallSameXApPaddle && isBallTouchingPaddle) //La pelota toca la paleta
             {
