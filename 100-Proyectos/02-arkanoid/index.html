@@ -42,6 +42,14 @@
 
         const ctx = canvas.getContext('2d'); //Con el contexto 2D se dibuja encima del canvas
 
+        /*VARIABLES DE LA PALETA*/
+
+        const paddleHeight = 10;
+        const paddleWidth = 50;
+
+        let paddleX = (canvas.width - paddleWidth) / 2;
+        let paddleY = canvas.height - paddleHeight - 10;
+
         function drawBall(){
             ctx.beginPath();
             ctx.arc(x, y, ballRadius, 0, Math.PI*2);
@@ -49,7 +57,10 @@
             ctx.fill();
             ctx.closePath();
         }
-        function drawPaddle(){}
+        function drawPaddle(){
+            ctx.fillStyle = 'red';
+            ctx.fillRect(paddleX, paddleY, paddleWidth, paddleHeight);
+        }
         function drawBricks(){}
 
         function collisionDetection(){}
