@@ -88,7 +88,15 @@
 
             //GameOver en la parte de abajo y reiniciar
 
-            if (y + dy > canvas.height - ballRadius) {
+            const isBallSameXApPaddle = x > paddleX && x < paddleX + paddleWidth;
+            const isBallTouchingPaddle = y + dy > paddleY;
+
+            if( isBallSameXApPaddle && isBallTouchingPaddle) //La pelota toca la paleta
+            {
+                dy = -dy; //Se cambia la direccion de la pelota
+            }
+            else if (y + dy > canvas.height - ballRadius) //La pelota toca el suelo
+            {
                 console.log('GAME OVER');
                 document.location.reload();
             }
