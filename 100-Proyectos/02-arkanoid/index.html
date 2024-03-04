@@ -23,6 +23,18 @@
             background: url('./bkg.png') repeat;
             margin: 0 auto;
             display: block;
+            position: relative;
+        }
+
+        .fps {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #fff;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -46,7 +58,7 @@
         /*VARIABLES DE LA PELOTA*/
 
         //Posicion de la pelota
-        const ballRadius = 3;
+        const ballRadius = 4;
         let x = Math.floor(Math.random() * (canvas.width - ballRadius * 2) + ballRadius);
         let y = canvas.height - 30;
 
@@ -176,7 +188,7 @@
             //GameOver en la parte de abajo y reiniciar
 
             const isBallSameXApPaddle = x > paddleX && x < paddleX + paddleWidth;
-            const isBallTouchingPaddle = y + dy < paddleY && y + dy > paddleY - ballRadius;
+            const isBallTouchingPaddle = y + dy < paddleY && y + dy > (paddleY - ballRadius + 1);
 
             if( isBallSameXApPaddle && isBallTouchingPaddle) //La pelota toca la paleta
             {
