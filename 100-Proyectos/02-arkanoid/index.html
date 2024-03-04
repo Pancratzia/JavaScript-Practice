@@ -28,12 +28,11 @@
 
         .fps {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 10px;
+            right: 10px;
             color: #fff;
-            padding: 10px;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
             z-index: 1000;
         }
     </style>
@@ -42,6 +41,7 @@
 <body>
 
     <canvas></canvas>
+    <span class="fps">FPS: <span id="fpsCounter">60</span></span>
     <img hidden id="sprite" src="./sprite.png" alt="Sprite de Arkanoid">
     <img hidden id="bricks" src="./bricks.png" alt="Sprite de los bricks de Arkanoid">
 
@@ -93,6 +93,13 @@
 
         let areAllBricksDestroyed = true;
 
+        //VARIABLES DE LOS FPS
+
+        let lastFrameTime = performance.now();
+        let framesCount = 0;
+        let canvasRect = canvas.getBoundingClientRect();
+        const $fps = document.querySelector('.fps');
+
         for (let c = 0; c < bricksColumnCount; c++) {
             bricks[c] = [];
             for (let r = 0; r < bricksRowCount; r++) {
@@ -114,7 +121,7 @@
             ctx.closePath();
         }
         function drawPaddle() {
-            
+
             ctx.fillStyle = 'transparent';
             ctx.fillRect(paddleX, paddleY, paddleWidth, paddleHeight);
 
@@ -148,7 +155,7 @@
             }
         }
 
-        function collisionDetection() { 
+        function collisionDetection() {
             for (let c = 0; c < bricksColumnCount; c++) {
                 for (let r = 0; r < bricksRowCount; r++) {
                     const currentBrick = bricks[c][r];
@@ -190,11 +197,11 @@
             const isBallSameXApPaddle = x > paddleX && x < paddleX + paddleWidth;
             const isBallTouchingPaddle = y + dy < paddleY && y + dy > (paddleY - ballRadius + 1);
 
-            if( isBallSameXApPaddle && isBallTouchingPaddle) //La pelota toca la paleta
+            if (isBallSameXApPaddle && isBallTouchingPaddle) //La pelota toca la paleta
             {
                 dy = -dy; //Se cambia la direccion de la pelota
             }
-            else if (y + dy > canvas.height - ballRadius) //La pelota toca el suelo
+            else if ( y + dy > canvas.height - ballRadius || y + dy > paddleY + paddleHeight) //La pelota toca el suelo
             {
                 console.log('GAME OVER');
                 document.location.reload();
@@ -204,12 +211,34 @@
             y += dy;
         }
         function paddleMovement() {
-            if(rightPressed && paddleX < canvas.width - paddleWidth){
+            if (rightPressed && paddleX < canvas.width - paddleWidth) {
                 paddleX += PADDLE_SENSITIVITY;
             }
-            else if(leftPressed && paddleX > 0){
-               paddleX -= PADDLE_SENSITIVITY; 
+            else if (leftPressed && paddleX > 0) {
+                paddleX -= PADDLE_SENSITIVITY;
             }
+        }
+
+        function calculateAndDisplayFPS() {
+            const currentTime = performance.now();
+            const elapsed = currentTime - lastFrameTime;
+            framesCount++;
+
+            if (elapsed > 1000) { // Si ha pasado más de 1 segundo
+                const fps = Math.round(framesCount / (elapsed / 1000));
+                document.getElementById('fpsCounter').innerText = fps;
+                lastFrameTime = currentTime;
+                framesCount = 0;
+            }
+        }
+
+        function updateCanvasRect() {
+            canvasRect = canvas.getBoundingClientRect();
+        }
+
+        function updateFPSPosition() {
+            $fps.style.top = `${canvasRect.top + 15}px`;
+            $fps.style.right = `${window.innerWidth - canvasRect.right + 15}px`;
         }
 
         function cleanCanvas() {
@@ -252,6 +281,9 @@
             ballMovement();
             paddleMovement();
 
+            //Mostrar los FPS
+            calculateAndDisplayFPS();
+            updateFPSPosition();
 
             //Esto ayuda a que la animacion se vea mas fluida. Con cada frame se dibuja un nuevo frame del canvas
             window.requestAnimationFrame(draw);
