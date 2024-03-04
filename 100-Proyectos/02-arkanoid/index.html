@@ -79,9 +79,7 @@
 
         const BRICK_STATUS = { ACTIVE: 0, DESTROYED: 1 };
 
-        const isGameEmpty = () => {
-            return bricks.every(column => column.every(row => row.status === BRICK_STATUS.DESTROYED));
-        }
+        let areAllBricksDestroyed = true;
 
         for (let c = 0; c < bricksColumnCount; c++) {
             bricks[c] = [];
@@ -117,6 +115,7 @@
                     if (currentBrick.status === BRICK_STATUS.DESTROYED) {
                         continue;
                     }
+                    areAllBricksDestroyed = false;
                     const clipX = currentBrick.color * 32;
                     ctx.drawImage(
                         $bricks,
@@ -132,7 +131,7 @@
                 }
             }
 
-            if (isGameEmpty()) {
+            if (areAllBricksDestroyed) {
                 window.location.reload();
             }
         }
@@ -228,6 +227,7 @@
 
         function draw() {
 
+            areAllBricksDestroyed = true;
             cleanCanvas();
 
             //Dibujar los elementos
