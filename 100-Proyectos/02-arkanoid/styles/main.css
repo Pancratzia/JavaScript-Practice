@@ -15,7 +15,6 @@ canvas {
     margin: 0 auto;
     display: block;
     box-shadow: 0 0 30px #fff;
-    cursor: pointer;
 }
 
 .fps {

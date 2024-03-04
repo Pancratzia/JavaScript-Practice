@@ -52,6 +52,24 @@ let framesCount = 0;
 let canvasRect = canvas.getBoundingClientRect();
 const $fps = document.querySelector('.fps');
 
+//RESETEAR JUEGO
+function resetGame() {
+    x = Math.floor(Math.random() * (canvas.width - ballRadius * 2) + ballRadius);
+    y = canvas.height - 30;
+    dx = 3;
+    dy = -3;
+    paddleX = (canvas.width - paddleWidth) / 2;
+    paddleY = canvas.height - paddleHeight - 10;
+    bricks.forEach(row => {
+        row.forEach(brick => {
+            brick.status = BRICK_STATUS.ACTIVE;
+        });
+    });
+}
+
+
+//FUNCIONES
+
 for (let c = 0; c < bricksColumnCount; c++) {
     bricks[c] = [];
     for (let r = 0; r < bricksRowCount; r++) {
@@ -103,7 +121,7 @@ function drawBricks() {
     }
 
     if (areAllBricksDestroyed) {
-        window.location.reload();
+        resetGame();
     }
 }
 
@@ -156,7 +174,7 @@ function ballMovement() {
     else if ( y + dy > canvas.height - ballRadius || y + dy > paddleY + paddleHeight) //La pelota toca el suelo
     {
         console.log('GAME OVER');
-        document.location.reload();
+        resetGame();
     }
 
     x += dx;
